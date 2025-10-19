@@ -1,48 +1,57 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.28)
+project(ForgottenServer C CXX)
 
-set(CMAKE_DISABLE_SOURCE_CHANGES ON)
-set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
+# Força C++11
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-project(tfs)
+# Mensagens silenciosas para evitar warnings de depuração cotire
+set(COTIRE_VERBOSE OFF)
 
-list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+# Ativa cotire se necessário
+include(cmake/cotire.cmake)
 
-include(cotire)
-
-add_compile_options(-Wall -Werror -pipe -fvisibility=hidden)
-
-if (CMAKE_COMPILER_IS_GNUCXX)
-    add_compile_options(-fno-strict-aliasing)
-endif()
-
-include(FindCXX11)
-
-# Find packages.
+# Busca dependências
+find_package(Boost 1.53 REQUIRED COMPONENTS system)
 find_package(GMP REQUIRED)
 find_package(PugiXML REQUIRED)
-find_package(LuaJIT)
-find_package(MySQL)
-find_package(Threads)
+find_package(Lua 5.2 REQUIRED)
 
-option(USE_LUAJIT "Use LuaJIT" ${LUAJIT_FOUND})
+# MySQL / MariaDB
+set(MYSQL_INCLUDE_DIR /usr/include/mysql)
+set(MYSQL_LIBRARY /usr/lib/x86_64-linux-gnu/libmysqlclient.so)
 
-if(USE_LUAJIT)
-    find_package(LuaJIT REQUIRED)
-    if(APPLE)
-      set(CMAKE_EXE_LINKER_FLAGS "-pagezero_size 10000 -image_base 100000000")
-    endif()
-else()
-    find_package(Lua)
-endif()
+# Threads
+find_package(Threads REQUIRED)
 
-find_package(Boost 1.53.0 COMPONENTS system REQUIRED)
+# Define diretórios de include
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${Boost_INCLUDE_DIRS}
+    ${GMP_INCLUDE_DIR}
+    ${PUGIXML_INCLUDE_DIR}
+    ${LUA_INCLUDE_DIR}
+    ${MYSQL_INCLUDE_DIR}
+)
 
-include(src/CMakeLists.txt)
-add_executable(tfs ${tfs_SRC})
+# Lista todos os arquivos fonte
+file(GLOB_RECURSE TFS_SRC
+    "src/*.cpp"
+    "src/*.h"
+)
 
-include_directories(${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR} ${GMP_INCLUDE_DIR})
-target_link_libraries(tfs ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES} ${Boost_LIBRARIES} ${PUGIXML_LIBRARIES} ${GMP_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+# Cria o executável
+add_executable(tfs ${TFS_SRC})
 
-set_target_properties(tfs PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "src/otpch.h")
-set_target_properties(tfs PROPERTIES COTIRE_ADD_UNITY_BUILD FALSE)
+# Aplica cotire
 cotire(tfs)
+
+# Linka bibliotecas
+target_link_libraries(tfs
+    ${Boost_LIBRARIES}
+    ${GMP_LIBRARIES}
+    ${PUGIXML_LIBRARIES}
+    ${LUA_LIBRARIES}
+    ${MYSQL_LIBRARY}
+    Threads::Threads
+)
