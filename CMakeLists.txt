@@ -1,48 +1,67 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.15)
+project(TFS)
 
-set(CMAKE_DISABLE_SOURCE_CHANGES ON)
-set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-project(tfs)
+# Paths GMP
+set(GMP_INCLUDE_DIR /usr/include)
+set(GMP_LIBRARIES /usr/lib/x86_64-linux-gnu/libgmp.so)
 
-list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+# Paths Boost
+find_package(Boost 1.53 REQUIRED COMPONENTS system)
+include_directories(${Boost_INCLUDE_DIRS})
 
-include(cotire)
-
-add_compile_options(-Wall -Werror -pipe -fvisibility=hidden)
-
-if (CMAKE_COMPILER_IS_GNUCXX)
-    add_compile_options(-fno-strict-aliasing)
+# Paths Lua
+find_path(LUA_INCLUDE_DIR lua.hpp /usr/include /usr/include/lua5.2 /usr/include/lua5.3)
+find_library(LUA_LIBRARY lua5.2 /usr/lib/x86_64-linux-gnu /usr/lib)
+if(NOT LUA_INCLUDE_DIR OR NOT LUA_LIBRARY)
+    message(FATAL_ERROR "Lua not found")
 endif()
 
-include(FindCXX11)
-
-# Find packages.
-find_package(GMP REQUIRED)
-find_package(PugiXML REQUIRED)
-find_package(LuaJIT)
-find_package(MySQL)
-find_package(Threads)
-
-option(USE_LUAJIT "Use LuaJIT" ${LUAJIT_FOUND})
-
-if(USE_LUAJIT)
-    find_package(LuaJIT REQUIRED)
-    if(APPLE)
-      set(CMAKE_EXE_LINKER_FLAGS "-pagezero_size 10000 -image_base 100000000")
-    endif()
-else()
-    find_package(Lua)
+# Paths MariaDB / MySQL
+find_path(MYSQL_INCLUDE_DIR mysql.h /usr/include/mysql)
+find_library(MYSQL_LIBRARY NAMES mariadb mysqlclient /usr/lib/x86_64-linux-gnu)
+if(NOT MYSQL_INCLUDE_DIR OR NOT MYSQL_LIBRARY)
+    message(FATAL_ERROR "MariaDB/MySQL client not found")
 endif()
 
-find_package(Boost 1.53.0 COMPONENTS system REQUIRED)
+# Paths PugiXML
+find_path(PUGIXML_INCLUDE_DIR pugixml.hpp /usr/include /usr/local/include)
+if(NOT PUGIXML_INCLUDE_DIR)
+    message(FATAL_ERROR "PugiXML not found")
+endif()
 
-include(src/CMakeLists.txt)
-add_executable(tfs ${tfs_SRC})
+# Include directories
+include_directories(
+    ${GMP_INCLUDE_DIR}
+    ${Boost_INCLUDE_DIRS}
+    ${LUA_INCLUDE_DIR}
+    ${MYSQL_INCLUDE_DIR}
+    ${PUGIXML_INCLUDE_DIR}
+    ${CMAKE_SOURCE_DIR}/src
+)
 
-include_directories(${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR} ${GMP_INCLUDE_DIR})
-target_link_libraries(tfs ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES} ${Boost_LIBRARIES} ${PUGIXML_LIBRARIES} ${GMP_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+# Source files
+file(GLOB_RECURSE TFS_SOURCES
+    ${CMAKE_SOURCE_DIR}/src/*.cpp
+    ${CMAKE_SOURCE_DIR}/src/*.h
+)
 
-set_target_properties(tfs PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "src/otpch.h")
-set_target_properties(tfs PROPERTIES COTIRE_ADD_UNITY_BUILD FALSE)
-cotire(tfs)
+# Add executable
+add_executable(tfs ${TFS_SOURCES})
+
+# Link libraries
+target_link_libraries(tfs
+    ${GMP_LIBRARIES}
+    ${Boost_LIBRARIES}
+    ${LUA_LIBRARY}
+    ${MYSQL_LIBRARY}
+    pthread
+)
+
+# Compiler flags
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    target_compile_options(tfs PRIVATE -Wall -Wextra -O2 -pthread)
+endif()
