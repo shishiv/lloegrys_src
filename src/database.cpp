@@ -158,13 +158,9 @@ DBResult_ptr Database::storeQuery(const std::string& query)
 
 std::string Database::escapeString(const std::string& s) const
 {
-	return escapeBlob(s.c_str(), s.length());
-}
-
-std::string Database::escapeBlob(const char* s, uint32_t length) const
-{
-	// the worst case is 2n + 1
-	size_t maxLength = (length * 2) + 1;
+	// Escape textual strings using MySQL client escaping and wrap in quotes
+	const size_t length = s.length();
+	const size_t maxLength = (length * 2) + 1; // worst case per mysql_real_escape_string
 
 	std::string escaped;
 	escaped.reserve(maxLength + 2);
@@ -172,13 +168,33 @@ std::string Database::escapeBlob(const char* s, uint32_t length) const
 
 	if (length != 0) {
 		char* output = new char[maxLength];
-		mysql_real_escape_string(handle, output, s, length);
+		mysql_real_escape_string(handle, output, s.c_str(), length);
 		escaped.append(output);
 		delete[] output;
 	}
 
 	escaped.push_back('\'');
 	return escaped;
+}
+
+std::string Database::escapeBlob(const char* s, uint32_t length) const
+{
+	// Represent binary data as a hex literal to avoid control bytes in SQL text
+	// MariaDB/MySQL syntax: X'AB12...'
+	std::string out;
+	out.reserve(2 + (length * 2) + 1);
+	out.push_back('X');
+	out.push_back('\'');
+
+	static const char hexdigits[] = "0123456789ABCDEF";
+	for (uint32_t i = 0; i < length; ++i) {
+		unsigned char c = static_cast<unsigned char>(s[i]);
+		out.push_back(hexdigits[c >> 4]);
+		out.push_back(hexdigits[c & 0x0F]);
+	}
+
+	out.push_back('\'');
+	return out;
 }
 
 DBResult::DBResult(MYSQL_RES* res)
