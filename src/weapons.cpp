@@ -628,7 +628,7 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 		return false;
 	}
 
-	int32_t chance;
+	int32_t chance = 100;
 	if (it.hitChance == 0) {
 		//hit chance is based on distance to target and distance skill
 		uint32_t skill = player->getSkillLevel(SKILL_DISTANCE);
