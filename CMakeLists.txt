@@ -53,11 +53,17 @@ file(GLOB_RECURSE TFS_SOURCES
 add_executable(tfs ${TFS_SOURCES})
 
 # Link libraries
+find_library(PUGIXML_LIBRARY NAMES pugixml /usr/lib/x86_64-linux-gnu /usr/local/lib)
+if(NOT PUGIXML_LIBRARY)
+    message(FATAL_ERROR "PugiXML library not found")
+endif()
+
 target_link_libraries(tfs
     ${GMP_LIBRARIES}
     ${Boost_LIBRARIES}
     ${LUA_LIBRARY}
     ${MYSQL_LIBRARY}
+    ${PUGIXML_LIBRARY}
     pthread
 )
 
