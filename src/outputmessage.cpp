@@ -79,5 +79,6 @@ void OutputMessagePool::removeProtocolFromAutosend(const Protocol_ptr& protocol)
 
 OutputMessage_ptr OutputMessagePool::getOutputMessage()
 {
-	return std::allocate_shared<OutputMessage>(OutputMessageAllocator());
+	using Alloc = LockfreePoolingAllocator<OutputMessage, OUTPUTMESSAGE_FREE_LIST_CAPACITY>;
+	return std::allocate_shared<OutputMessage>(Alloc());
 }
