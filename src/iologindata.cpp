@@ -20,6 +20,7 @@
 #include "otpch.h"
 
 #include "iologindata.h"
+#include "dbutils.h"
 #include "configmanager.h"
 #include "game.h"
 
@@ -574,7 +575,7 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
 	int32_t runningId = 100;
 
 	Database* db = Database::getInstance();
-	for (const auto& it : itemList) {
+    for (const auto& it : itemList) {
 		int32_t pid = it.first;
 		Item* item = it.second;
 		++runningId;
@@ -585,7 +586,12 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
 		size_t attributesSize;
 		const char* attributes = propWriteStream.getStream(attributesSize);
 
-		ss << player->getGUID() << ',' << pid << ',' << runningId << ',' << item->getID() << ',' << item->getSubType() << ',' << db->escapeBlob(attributes, attributesSize);
+        if (attributesSize == 0) {
+            ss << player->getGUID() << ',' << pid << ',' << runningId << ',' << item->getID() << ',' << item->getSubType() << ",''";
+        } else {
+            std::string hex = binToHex(reinterpret_cast<const unsigned char*>(attributes), attributesSize);
+            ss << player->getGUID() << ',' << pid << ',' << runningId << ',' << item->getID() << ',' << item->getSubType() << ",0x" << hex;
+        }
 		if (!query_insert.addRow(ss)) {
 			return false;
 		}
@@ -615,7 +621,12 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
 			size_t attributesSize;
 			const char* attributes = propWriteStream.getStream(attributesSize);
 
-			ss << player->getGUID() << ',' << parentId << ',' << runningId << ',' << item->getID() << ',' << item->getSubType() << ',' << db->escapeBlob(attributes, attributesSize);
+            if (attributesSize == 0) {
+                ss << player->getGUID() << ',' << parentId << ',' << runningId << ',' << item->getID() << ',' << item->getSubType() << ",''";
+            } else {
+                std::string hex = binToHex(reinterpret_cast<const unsigned char*>(attributes), attributesSize);
+                ss << player->getGUID() << ',' << parentId << ',' << runningId << ',' << item->getID() << ',' << item->getSubType() << ",0x" << hex;
+            }
 			if (!query_insert.addRow(ss)) {
 				return false;
 			}
@@ -685,7 +696,7 @@ bool IOLoginData::savePlayer(Player* player)
 	query << "`posz` = " << loginPosition.getZ() << ',';
 
 	query << "`cap` = " << (player->capacity / 100) << ',';
-	query << "`sex` = " << static_cast<uint32_t>(player->sex) << ',';
+    query << "`sex` = " << static_cast<uint32_t>(player->sex) << ',';
 
 	if (player->lastLoginSaved != 0) {
 		query << "`lastlogin` = " << player->lastLoginSaved << ',';
@@ -695,7 +706,15 @@ bool IOLoginData::savePlayer(Player* player)
 		query << "`lastip` = " << player->lastIP << ',';
 	}
 
-	query << "`conditions` = " << db->escapeBlob(conditions, conditionsSize) << ',';
+    {
+        // Persist conditions as 0xHEX literal to avoid control bytes in SQL text
+        if (conditionsSize == 0) {
+            query << "`conditions` = ''" << ',';
+        } else {
+            std::string hex = binToHex(reinterpret_cast<const unsigned char*>(conditions), conditionsSize);
+            query << "`conditions` = 0x" << hex << ',';
+        }
+    }
 
 	if (g_game.getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
 		int32_t skullTime = 0;

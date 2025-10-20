@@ -23,6 +23,8 @@
 static constexpr auto STATUS_SERVER_NAME = "The Forgotten Server";
 static constexpr auto STATUS_SERVER_VERSION = "1.2";
 static constexpr auto STATUS_SERVER_DEVELOPERS = "Mark Samman";
+// Custom build marker to verify runtime binary/version
+static constexpr auto STATUS_BUILD_TAG = "lloegrys-binhex-escapes-v1";
 
 static constexpr auto CLIENT_VERSION_MIN = 1097;
 static constexpr auto CLIENT_VERSION_MAX = 1098;

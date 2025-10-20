@@ -22,6 +22,7 @@
 #include "iomapserialize.h"
 #include "game.h"
 #include "bed.h"
+#include "dbutils.h"
 
 extern Game g_game;
 
@@ -91,14 +92,15 @@ bool IOMapSerialize::saveHouseItems()
 			saveTile(stream, tile);
 
 			size_t attributesSize;
-			const char* attributes = stream.getStream(attributesSize);
-			if (attributesSize > 0) {
-				query << house->getId() << ',' << db->escapeBlob(attributes, attributesSize);
-				if (!stmt.addRow(query)) {
-					return false;
-				}
-				stream.clear();
-			}
+            const char* attributes = stream.getStream(attributesSize);
+            if (attributesSize > 0) {
+                std::string hex = binToHex(reinterpret_cast<const unsigned char*>(attributes), attributesSize);
+                query << house->getId() << ",0x" << hex;
+                if (!stmt.addRow(query)) {
+                    return false;
+                }
+                stream.clear();
+            }
 		}
 	}
 

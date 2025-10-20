@@ -131,6 +131,7 @@ void mainLoader(int, char*[], ServiceManager* services)
 	SetConsoleTitle(STATUS_SERVER_NAME);
 #endif
 	std::cout << STATUS_SERVER_NAME << " - Version " << STATUS_SERVER_VERSION << std::endl;
+	std::cout << "Build tag: " << STATUS_BUILD_TAG << std::endl;
 	std::cout << "Compiled with " << BOOST_COMPILER << std::endl;
 	std::cout << "Compiled on " << __DATE__ << ' ' << __TIME__ << " for platform ";
 
