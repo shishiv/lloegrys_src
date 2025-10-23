@@ -112,11 +112,19 @@ std::string Logger::timestampNow() const {
 #else
     localtime_r(&t, &tm);
 #endif
+<<<<<<< HEAD
     char buf[32] = {0};
     if (std::strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", &tm) == 0) {
         return "0000-00-00 00:00:00";
     }
     return std::string(buf);
+=======
+    char buf[32];
+    std::snprintf(buf, sizeof(buf), "%04d-%02d-%02d %02d:%02d:%02d",
+                  tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
+                  tm.tm_hour, tm.tm_min, tm.tm_sec);
+    return buf;
+>>>>>>> d76db372a036ed363197c86a9b9aa1b41f554373
 }
 
 std::string Logger::threadIdString() const {
