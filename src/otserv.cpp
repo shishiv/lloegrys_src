@@ -19,7 +19,11 @@
 
 #include "otpch.h"
 
+
 #include "server.h"
+
+#include "logger.h"
+#include "crash_handler.h"
 
 #include "game.h"
 
@@ -74,14 +78,32 @@ int main(int argc, char* argv[])
 	// Setup bad allocation handler
 	std::set_new_handler(badAllocationHandler);
 
-#ifndef _WIN32
-	// ignore sigpipe...
-	struct sigaction sigh;
-	sigh.sa_handler = SIG_IGN;
-	sigh.sa_flags = 0;
-	sigemptyset(&sigh.sa_mask);
-	sigaction(SIGPIPE, &sigh, nullptr);
-#endif
+	// Initialize logging early
+	{
+		const char* envPath = std::getenv("LLOEGRYS_LOG_FILE");
+		std::string logPath = envPath ? std::string(envPath) : std::string("logs/server.log");
+		Logger::get().init(logPath, true);
+		const char* envLvl = std::getenv("LLOEGRYS_LOG_LEVEL");
+		if (envLvl) {
+			std::string lvl(envLvl);
+			if (lvl == "debug") Logger::get().setLevel(LogLevel::Debug);
+			else if (lvl == "info") Logger::get().setLevel(LogLevel::Info);
+			else if (lvl == "warn") Logger::get().setLevel(LogLevel::Warn);
+			else if (lvl == "error") Logger::get().setLevel(LogLevel::Error);
+		}
+	}
+
+	// Install crash handler (logs stacktrace and recent logs)
+	CrashHandler::install();
+
+	#ifndef _WIN32
+		// ignore sigpipe...
+		struct sigaction sigh;
+		sigh.sa_handler = SIG_IGN;
+		sigh.sa_flags = 0;
+		sigemptyset(&sigh.sa_mask);
+		sigaction(SIGPIPE, &sigh, nullptr);
+	#endif
 
 	ServiceManager serviceManager;
 
@@ -288,8 +310,10 @@ void mainLoader(int, char*[], ServiceManager* services)
 
 	g_game.map.houses.payHouses(rentPeriod);
 
-	IOMarket::checkExpiredOffers();
-	IOMarket::getInstance()->updateStatistics();
+    if (!std::getenv("LLOEGRYS_MARKET_DISABLED")) {
+        IOMarket::checkExpiredOffers();
+        IOMarket::getInstance()->updateStatistics();
+    }
 
 	std::cout << ">> Loaded all modules, server starting up..." << std::endl;
 

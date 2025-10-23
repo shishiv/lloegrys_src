@@ -20,13 +20,15 @@
 #include "otpch.h"
 
 #include "tools.h"
+#include "logger.h"
 #include "configmanager.h"
 
 extern ConfigManager g_config;
 
 void printXMLError(const std::string& where, const std::string& fileName, const pugi::xml_parse_result& result)
 {
-	std::cout << '[' << where << "] Failed to load " << fileName << ": " << result.description() << std::endl;
+    std::cout << '[' << where << "] Failed to load " << fileName << ": " << result.description() << std::endl;
+    LOG_ERROR(std::string(where) + ": Failed to load " + fileName + ": " + result.description());
 
 	FILE* file = fopen(fileName.c_str(), "rb");
 	if (!file) {
@@ -61,8 +63,8 @@ void printXMLError(const std::string& where, const std::string& fileName, const 
 	} while (bytes == 32768);
 	fclose(file);
 
-	std::cout << "Line " << currentLine << ':' << std::endl;
-	std::cout << line << std::endl;
+    std::cout << "Line " << currentLine << ':' << std::endl;
+    std::cout << line << std::endl;
 	for (size_t i = 0; i < lineOffsetPosition; i++) {
 		if (line[i] == '\t') {
 			std::cout << '\t';
