@@ -91,40 +91,6 @@ bool Player::setVocation(uint16_t vocId)
 	return true;
 }
 
-void Player::applyAccountBonuses(int32_t hpFlat, int32_t manaFlat, int32_t mlFlat, int32_t skillFlat, int32_t speedDelta, int32_t capFlat)
-{
-    // Flat max HP/MP and magic level via varStats so it affects UI and calculations
-    if (hpFlat != 0) {
-        setVarStats(STAT_MAXHITPOINTS, hpFlat);
-    }
-    if (manaFlat != 0) {
-        setVarStats(STAT_MAXMANAPOINTS, manaFlat);
-    }
-    if (mlFlat != 0) {
-        setVarStats(STAT_MAGICPOINTS, mlFlat);
-    }
-
-    // Flat bonus to all skills via varSkills
-    if (skillFlat != 0) {
-        for (uint8_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
-            setVarSkill(static_cast<skills_t>(i), skillFlat);
-        }
-    }
-
-    // Capacity: keep a runtime-only delta and apply to capacity (stored in hundredths)
-    if (capFlat != 0) {
-        accountCapBonus = capFlat;
-        capacity += (capFlat * 100);
-    }
-
-    // Movement speed delta (runtime). Use changeSpeed; stack-safe as a delta.
-    if (speedDelta != 0) {
-        g_game.changeSpeed(this, speedDelta);
-    }
-
-    // Push updated stats to client
-    sendStats();
-}
 
 bool Player::isPushable() const
 {
