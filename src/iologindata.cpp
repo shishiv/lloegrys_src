@@ -574,7 +574,7 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
 
 	int32_t runningId = 100;
 
-	Database* db = Database::getInstance();
+    // no direct DB access needed here; we batch via query_insert
     for (const auto& it : itemList) {
 		int32_t pid = it.first;
 		Item* item = it.second;
