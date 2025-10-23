@@ -310,10 +310,10 @@ void mainLoader(int, char*[], ServiceManager* services)
 
 	g_game.map.houses.payHouses(rentPeriod);
 
-    if (!std::getenv("LLOEGRYS_MARKET_DISABLED")) {
-        IOMarket::checkExpiredOffers();
-        IOMarket::getInstance()->updateStatistics();
-    }
+	    if (g_config.getBoolean(ConfigManager::MARKET_ENABLED)) {
+	        IOMarket::checkExpiredOffers();
+	        IOMarket::getInstance()->updateStatistics();
+	    }
 
 	std::cout << ">> Loaded all modules, server starting up..." << std::endl;
 

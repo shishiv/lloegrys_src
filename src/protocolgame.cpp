@@ -1556,6 +1556,18 @@ void ProtocolGame::sendSaleItemList(const std::list<ShopInfo>& shop)
 
 void ProtocolGame::sendMarketEnter(uint32_t depotId)
 {
+    if (!g_config.getBoolean(ConfigManager::MARKET_ENABLED)) {
+        if (player) {
+            player->sendTextMessage(MESSAGE_STATUS_CONSOLE_RED, "Market is disabled on this server.");
+        }
+        NetworkMessage msg;
+        msg.addByte(0xF6);
+        msg.add<uint64_t>(player ? player->getBankBalance() : 0);
+        msg.addByte(0);
+        msg.add<uint16_t>(0);
+        writeToOutputBuffer(msg);
+        return;
+    }
 	NetworkMessage msg;
 	msg.addByte(0xF6);
 
