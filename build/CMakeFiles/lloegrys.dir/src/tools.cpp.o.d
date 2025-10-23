@@ -1253,8 +1253,10 @@ CMakeFiles/lloegrys.dir/src/tools.cpp.o: /root/lloegrys_src/src/tools.cpp \
  /usr/include/c++/14/bits/stl_numeric.h \
  /usr/include/c++/14/pstl/glue_numeric_defs.h \
  /root/lloegrys_src/src/position.h /root/lloegrys_src/src/const.h \
- /root/lloegrys_src/src/enums.h /root/lloegrys_src/src/configmanager.h \
- /usr/include/lua5.2/lua.hpp /usr/include/lua5.2/lua.h \
- /usr/include/lua5.2/luaconf.h \
+ /root/lloegrys_src/src/enums.h /root/lloegrys_src/src/logger.h \
+ /usr/include/c++/14/deque /usr/include/c++/14/bits/stl_deque.h \
+ /usr/include/c++/14/bits/deque.tcc \
+ /root/lloegrys_src/src/configmanager.h /usr/include/lua5.2/lua.hpp \
+ /usr/include/lua5.2/lua.h /usr/include/lua5.2/luaconf.h \
  /usr/include/x86_64-linux-gnu/lua5.2-deb-multiarch.h \
  /usr/include/lua5.2/lualib.h /usr/include/lua5.2/lauxlib.h

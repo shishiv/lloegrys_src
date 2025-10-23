@@ -393,6 +393,30 @@ src/container.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lloegrys.dir/build.make CMakeFiles/lloegrys.dir/src/container.cpp.s
 .PHONY : src/container.cpp.s
 
+src/crash_handler.o: src/crash_handler.cpp.o
+.PHONY : src/crash_handler.o
+
+# target to build an object file
+src/crash_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lloegrys.dir/build.make CMakeFiles/lloegrys.dir/src/crash_handler.cpp.o
+.PHONY : src/crash_handler.cpp.o
+
+src/crash_handler.i: src/crash_handler.cpp.i
+.PHONY : src/crash_handler.i
+
+# target to preprocess a source file
+src/crash_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lloegrys.dir/build.make CMakeFiles/lloegrys.dir/src/crash_handler.cpp.i
+.PHONY : src/crash_handler.cpp.i
+
+src/crash_handler.s: src/crash_handler.cpp.s
+.PHONY : src/crash_handler.s
+
+# target to generate assembly for a file
+src/crash_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lloegrys.dir/build.make CMakeFiles/lloegrys.dir/src/crash_handler.cpp.s
+.PHONY : src/crash_handler.cpp.s
+
 src/creature.o: src/creature.cpp.o
 .PHONY : src/creature.o
 
@@ -968,6 +992,30 @@ src/items.s: src/items.cpp.s
 src/items.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lloegrys.dir/build.make CMakeFiles/lloegrys.dir/src/items.cpp.s
 .PHONY : src/items.cpp.s
+
+src/logger.o: src/logger.cpp.o
+.PHONY : src/logger.o
+
+# target to build an object file
+src/logger.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lloegrys.dir/build.make CMakeFiles/lloegrys.dir/src/logger.cpp.o
+.PHONY : src/logger.cpp.o
+
+src/logger.i: src/logger.cpp.i
+.PHONY : src/logger.i
+
+# target to preprocess a source file
+src/logger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lloegrys.dir/build.make CMakeFiles/lloegrys.dir/src/logger.cpp.i
+.PHONY : src/logger.cpp.i
+
+src/logger.s: src/logger.cpp.s
+.PHONY : src/logger.s
+
+# target to generate assembly for a file
+src/logger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lloegrys.dir/build.make CMakeFiles/lloegrys.dir/src/logger.cpp.s
+.PHONY : src/logger.cpp.s
 
 src/luascript.o: src/luascript.cpp.o
 .PHONY : src/luascript.o
@@ -1971,6 +2019,9 @@ help:
 	@echo "... src/container.o"
 	@echo "... src/container.i"
 	@echo "... src/container.s"
+	@echo "... src/crash_handler.o"
+	@echo "... src/crash_handler.i"
+	@echo "... src/crash_handler.s"
 	@echo "... src/creature.o"
 	@echo "... src/creature.i"
 	@echo "... src/creature.s"
@@ -2043,6 +2094,9 @@ help:
 	@echo "... src/items.o"
 	@echo "... src/items.i"
 	@echo "... src/items.s"
+	@echo "... src/logger.o"
+	@echo "... src/logger.i"
+	@echo "... src/logger.s"
 	@echo "... src/luascript.o"
 	@echo "... src/luascript.i"
 	@echo "... src/luascript.s"

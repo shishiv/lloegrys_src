@@ -226,10 +226,24 @@ CMakeFiles/lloegrys.dir/src/container.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lloegrys.dir/src/container.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/lloegrys_src/src/container.cpp -o CMakeFiles/lloegrys.dir/src/container.cpp.s
 
+CMakeFiles/lloegrys.dir/src/crash_handler.cpp.o: CMakeFiles/lloegrys.dir/flags.make
+CMakeFiles/lloegrys.dir/src/crash_handler.cpp.o: /root/lloegrys_src/src/crash_handler.cpp
+CMakeFiles/lloegrys.dir/src/crash_handler.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/lloegrys.dir/src/crash_handler.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/crash_handler.cpp.o -MF CMakeFiles/lloegrys.dir/src/crash_handler.cpp.o.d -o CMakeFiles/lloegrys.dir/src/crash_handler.cpp.o -c /root/lloegrys_src/src/crash_handler.cpp
+
+CMakeFiles/lloegrys.dir/src/crash_handler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lloegrys.dir/src/crash_handler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/lloegrys_src/src/crash_handler.cpp > CMakeFiles/lloegrys.dir/src/crash_handler.cpp.i
+
+CMakeFiles/lloegrys.dir/src/crash_handler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lloegrys.dir/src/crash_handler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/lloegrys_src/src/crash_handler.cpp -o CMakeFiles/lloegrys.dir/src/crash_handler.cpp.s
+
 CMakeFiles/lloegrys.dir/src/creature.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/creature.cpp.o: /root/lloegrys_src/src/creature.cpp
 CMakeFiles/lloegrys.dir/src/creature.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/lloegrys.dir/src/creature.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/lloegrys.dir/src/creature.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/creature.cpp.o -MF CMakeFiles/lloegrys.dir/src/creature.cpp.o.d -o CMakeFiles/lloegrys.dir/src/creature.cpp.o -c /root/lloegrys_src/src/creature.cpp
 
 CMakeFiles/lloegrys.dir/src/creature.cpp.i: cmake_force
@@ -243,7 +257,7 @@ CMakeFiles/lloegrys.dir/src/creature.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/creatureevent.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/creatureevent.cpp.o: /root/lloegrys_src/src/creatureevent.cpp
 CMakeFiles/lloegrys.dir/src/creatureevent.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/lloegrys.dir/src/creatureevent.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/lloegrys.dir/src/creatureevent.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/creatureevent.cpp.o -MF CMakeFiles/lloegrys.dir/src/creatureevent.cpp.o.d -o CMakeFiles/lloegrys.dir/src/creatureevent.cpp.o -c /root/lloegrys_src/src/creatureevent.cpp
 
 CMakeFiles/lloegrys.dir/src/creatureevent.cpp.i: cmake_force
@@ -257,7 +271,7 @@ CMakeFiles/lloegrys.dir/src/creatureevent.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/cylinder.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/cylinder.cpp.o: /root/lloegrys_src/src/cylinder.cpp
 CMakeFiles/lloegrys.dir/src/cylinder.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/lloegrys.dir/src/cylinder.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/lloegrys.dir/src/cylinder.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/cylinder.cpp.o -MF CMakeFiles/lloegrys.dir/src/cylinder.cpp.o.d -o CMakeFiles/lloegrys.dir/src/cylinder.cpp.o -c /root/lloegrys_src/src/cylinder.cpp
 
 CMakeFiles/lloegrys.dir/src/cylinder.cpp.i: cmake_force
@@ -271,7 +285,7 @@ CMakeFiles/lloegrys.dir/src/cylinder.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/database.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/database.cpp.o: /root/lloegrys_src/src/database.cpp
 CMakeFiles/lloegrys.dir/src/database.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/lloegrys.dir/src/database.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/lloegrys.dir/src/database.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/database.cpp.o -MF CMakeFiles/lloegrys.dir/src/database.cpp.o.d -o CMakeFiles/lloegrys.dir/src/database.cpp.o -c /root/lloegrys_src/src/database.cpp
 
 CMakeFiles/lloegrys.dir/src/database.cpp.i: cmake_force
@@ -285,7 +299,7 @@ CMakeFiles/lloegrys.dir/src/database.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/databasemanager.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/databasemanager.cpp.o: /root/lloegrys_src/src/databasemanager.cpp
 CMakeFiles/lloegrys.dir/src/databasemanager.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/lloegrys.dir/src/databasemanager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/lloegrys.dir/src/databasemanager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/databasemanager.cpp.o -MF CMakeFiles/lloegrys.dir/src/databasemanager.cpp.o.d -o CMakeFiles/lloegrys.dir/src/databasemanager.cpp.o -c /root/lloegrys_src/src/databasemanager.cpp
 
 CMakeFiles/lloegrys.dir/src/databasemanager.cpp.i: cmake_force
@@ -299,7 +313,7 @@ CMakeFiles/lloegrys.dir/src/databasemanager.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/databasetasks.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/databasetasks.cpp.o: /root/lloegrys_src/src/databasetasks.cpp
 CMakeFiles/lloegrys.dir/src/databasetasks.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/lloegrys.dir/src/databasetasks.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/lloegrys.dir/src/databasetasks.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/databasetasks.cpp.o -MF CMakeFiles/lloegrys.dir/src/databasetasks.cpp.o.d -o CMakeFiles/lloegrys.dir/src/databasetasks.cpp.o -c /root/lloegrys_src/src/databasetasks.cpp
 
 CMakeFiles/lloegrys.dir/src/databasetasks.cpp.i: cmake_force
@@ -313,7 +327,7 @@ CMakeFiles/lloegrys.dir/src/databasetasks.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/depotchest.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/depotchest.cpp.o: /root/lloegrys_src/src/depotchest.cpp
 CMakeFiles/lloegrys.dir/src/depotchest.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/lloegrys.dir/src/depotchest.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/lloegrys.dir/src/depotchest.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/depotchest.cpp.o -MF CMakeFiles/lloegrys.dir/src/depotchest.cpp.o.d -o CMakeFiles/lloegrys.dir/src/depotchest.cpp.o -c /root/lloegrys_src/src/depotchest.cpp
 
 CMakeFiles/lloegrys.dir/src/depotchest.cpp.i: cmake_force
@@ -327,7 +341,7 @@ CMakeFiles/lloegrys.dir/src/depotchest.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/depotlocker.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/depotlocker.cpp.o: /root/lloegrys_src/src/depotlocker.cpp
 CMakeFiles/lloegrys.dir/src/depotlocker.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/lloegrys.dir/src/depotlocker.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/lloegrys.dir/src/depotlocker.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/depotlocker.cpp.o -MF CMakeFiles/lloegrys.dir/src/depotlocker.cpp.o.d -o CMakeFiles/lloegrys.dir/src/depotlocker.cpp.o -c /root/lloegrys_src/src/depotlocker.cpp
 
 CMakeFiles/lloegrys.dir/src/depotlocker.cpp.i: cmake_force
@@ -341,7 +355,7 @@ CMakeFiles/lloegrys.dir/src/depotlocker.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/events.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/events.cpp.o: /root/lloegrys_src/src/events.cpp
 CMakeFiles/lloegrys.dir/src/events.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/lloegrys.dir/src/events.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/lloegrys.dir/src/events.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/events.cpp.o -MF CMakeFiles/lloegrys.dir/src/events.cpp.o.d -o CMakeFiles/lloegrys.dir/src/events.cpp.o -c /root/lloegrys_src/src/events.cpp
 
 CMakeFiles/lloegrys.dir/src/events.cpp.i: cmake_force
@@ -355,7 +369,7 @@ CMakeFiles/lloegrys.dir/src/events.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/fileloader.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/fileloader.cpp.o: /root/lloegrys_src/src/fileloader.cpp
 CMakeFiles/lloegrys.dir/src/fileloader.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/lloegrys.dir/src/fileloader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/lloegrys.dir/src/fileloader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/fileloader.cpp.o -MF CMakeFiles/lloegrys.dir/src/fileloader.cpp.o.d -o CMakeFiles/lloegrys.dir/src/fileloader.cpp.o -c /root/lloegrys_src/src/fileloader.cpp
 
 CMakeFiles/lloegrys.dir/src/fileloader.cpp.i: cmake_force
@@ -369,7 +383,7 @@ CMakeFiles/lloegrys.dir/src/fileloader.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/game.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/game.cpp.o: /root/lloegrys_src/src/game.cpp
 CMakeFiles/lloegrys.dir/src/game.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/lloegrys.dir/src/game.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/lloegrys.dir/src/game.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/game.cpp.o -MF CMakeFiles/lloegrys.dir/src/game.cpp.o.d -o CMakeFiles/lloegrys.dir/src/game.cpp.o -c /root/lloegrys_src/src/game.cpp
 
 CMakeFiles/lloegrys.dir/src/game.cpp.i: cmake_force
@@ -383,7 +397,7 @@ CMakeFiles/lloegrys.dir/src/game.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/globalevent.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/globalevent.cpp.o: /root/lloegrys_src/src/globalevent.cpp
 CMakeFiles/lloegrys.dir/src/globalevent.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/lloegrys.dir/src/globalevent.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/lloegrys.dir/src/globalevent.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/globalevent.cpp.o -MF CMakeFiles/lloegrys.dir/src/globalevent.cpp.o.d -o CMakeFiles/lloegrys.dir/src/globalevent.cpp.o -c /root/lloegrys_src/src/globalevent.cpp
 
 CMakeFiles/lloegrys.dir/src/globalevent.cpp.i: cmake_force
@@ -397,7 +411,7 @@ CMakeFiles/lloegrys.dir/src/globalevent.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/groups.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/groups.cpp.o: /root/lloegrys_src/src/groups.cpp
 CMakeFiles/lloegrys.dir/src/groups.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/lloegrys.dir/src/groups.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/lloegrys.dir/src/groups.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/groups.cpp.o -MF CMakeFiles/lloegrys.dir/src/groups.cpp.o.d -o CMakeFiles/lloegrys.dir/src/groups.cpp.o -c /root/lloegrys_src/src/groups.cpp
 
 CMakeFiles/lloegrys.dir/src/groups.cpp.i: cmake_force
@@ -411,7 +425,7 @@ CMakeFiles/lloegrys.dir/src/groups.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/guild.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/guild.cpp.o: /root/lloegrys_src/src/guild.cpp
 CMakeFiles/lloegrys.dir/src/guild.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/lloegrys.dir/src/guild.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/lloegrys.dir/src/guild.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/guild.cpp.o -MF CMakeFiles/lloegrys.dir/src/guild.cpp.o.d -o CMakeFiles/lloegrys.dir/src/guild.cpp.o -c /root/lloegrys_src/src/guild.cpp
 
 CMakeFiles/lloegrys.dir/src/guild.cpp.i: cmake_force
@@ -425,7 +439,7 @@ CMakeFiles/lloegrys.dir/src/guild.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/house.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/house.cpp.o: /root/lloegrys_src/src/house.cpp
 CMakeFiles/lloegrys.dir/src/house.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/lloegrys.dir/src/house.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/lloegrys.dir/src/house.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/house.cpp.o -MF CMakeFiles/lloegrys.dir/src/house.cpp.o.d -o CMakeFiles/lloegrys.dir/src/house.cpp.o -c /root/lloegrys_src/src/house.cpp
 
 CMakeFiles/lloegrys.dir/src/house.cpp.i: cmake_force
@@ -439,7 +453,7 @@ CMakeFiles/lloegrys.dir/src/house.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/housetile.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/housetile.cpp.o: /root/lloegrys_src/src/housetile.cpp
 CMakeFiles/lloegrys.dir/src/housetile.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/lloegrys.dir/src/housetile.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/lloegrys.dir/src/housetile.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/housetile.cpp.o -MF CMakeFiles/lloegrys.dir/src/housetile.cpp.o.d -o CMakeFiles/lloegrys.dir/src/housetile.cpp.o -c /root/lloegrys_src/src/housetile.cpp
 
 CMakeFiles/lloegrys.dir/src/housetile.cpp.i: cmake_force
@@ -453,7 +467,7 @@ CMakeFiles/lloegrys.dir/src/housetile.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/inbox.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/inbox.cpp.o: /root/lloegrys_src/src/inbox.cpp
 CMakeFiles/lloegrys.dir/src/inbox.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/lloegrys.dir/src/inbox.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/lloegrys.dir/src/inbox.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/inbox.cpp.o -MF CMakeFiles/lloegrys.dir/src/inbox.cpp.o.d -o CMakeFiles/lloegrys.dir/src/inbox.cpp.o -c /root/lloegrys_src/src/inbox.cpp
 
 CMakeFiles/lloegrys.dir/src/inbox.cpp.i: cmake_force
@@ -467,7 +481,7 @@ CMakeFiles/lloegrys.dir/src/inbox.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/ioguild.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/ioguild.cpp.o: /root/lloegrys_src/src/ioguild.cpp
 CMakeFiles/lloegrys.dir/src/ioguild.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/lloegrys.dir/src/ioguild.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/lloegrys.dir/src/ioguild.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/ioguild.cpp.o -MF CMakeFiles/lloegrys.dir/src/ioguild.cpp.o.d -o CMakeFiles/lloegrys.dir/src/ioguild.cpp.o -c /root/lloegrys_src/src/ioguild.cpp
 
 CMakeFiles/lloegrys.dir/src/ioguild.cpp.i: cmake_force
@@ -481,7 +495,7 @@ CMakeFiles/lloegrys.dir/src/ioguild.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/iologindata.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/iologindata.cpp.o: /root/lloegrys_src/src/iologindata.cpp
 CMakeFiles/lloegrys.dir/src/iologindata.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/lloegrys.dir/src/iologindata.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/lloegrys.dir/src/iologindata.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/iologindata.cpp.o -MF CMakeFiles/lloegrys.dir/src/iologindata.cpp.o.d -o CMakeFiles/lloegrys.dir/src/iologindata.cpp.o -c /root/lloegrys_src/src/iologindata.cpp
 
 CMakeFiles/lloegrys.dir/src/iologindata.cpp.i: cmake_force
@@ -495,7 +509,7 @@ CMakeFiles/lloegrys.dir/src/iologindata.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/iomap.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/iomap.cpp.o: /root/lloegrys_src/src/iomap.cpp
 CMakeFiles/lloegrys.dir/src/iomap.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/lloegrys.dir/src/iomap.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/lloegrys.dir/src/iomap.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/iomap.cpp.o -MF CMakeFiles/lloegrys.dir/src/iomap.cpp.o.d -o CMakeFiles/lloegrys.dir/src/iomap.cpp.o -c /root/lloegrys_src/src/iomap.cpp
 
 CMakeFiles/lloegrys.dir/src/iomap.cpp.i: cmake_force
@@ -509,7 +523,7 @@ CMakeFiles/lloegrys.dir/src/iomap.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/iomapserialize.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/iomapserialize.cpp.o: /root/lloegrys_src/src/iomapserialize.cpp
 CMakeFiles/lloegrys.dir/src/iomapserialize.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/lloegrys.dir/src/iomapserialize.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/lloegrys.dir/src/iomapserialize.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/iomapserialize.cpp.o -MF CMakeFiles/lloegrys.dir/src/iomapserialize.cpp.o.d -o CMakeFiles/lloegrys.dir/src/iomapserialize.cpp.o -c /root/lloegrys_src/src/iomapserialize.cpp
 
 CMakeFiles/lloegrys.dir/src/iomapserialize.cpp.i: cmake_force
@@ -523,7 +537,7 @@ CMakeFiles/lloegrys.dir/src/iomapserialize.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/iomarket.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/iomarket.cpp.o: /root/lloegrys_src/src/iomarket.cpp
 CMakeFiles/lloegrys.dir/src/iomarket.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/lloegrys.dir/src/iomarket.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/lloegrys.dir/src/iomarket.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/iomarket.cpp.o -MF CMakeFiles/lloegrys.dir/src/iomarket.cpp.o.d -o CMakeFiles/lloegrys.dir/src/iomarket.cpp.o -c /root/lloegrys_src/src/iomarket.cpp
 
 CMakeFiles/lloegrys.dir/src/iomarket.cpp.i: cmake_force
@@ -537,7 +551,7 @@ CMakeFiles/lloegrys.dir/src/iomarket.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/item.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/item.cpp.o: /root/lloegrys_src/src/item.cpp
 CMakeFiles/lloegrys.dir/src/item.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/lloegrys.dir/src/item.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/lloegrys.dir/src/item.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/item.cpp.o -MF CMakeFiles/lloegrys.dir/src/item.cpp.o.d -o CMakeFiles/lloegrys.dir/src/item.cpp.o -c /root/lloegrys_src/src/item.cpp
 
 CMakeFiles/lloegrys.dir/src/item.cpp.i: cmake_force
@@ -551,7 +565,7 @@ CMakeFiles/lloegrys.dir/src/item.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/items.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/items.cpp.o: /root/lloegrys_src/src/items.cpp
 CMakeFiles/lloegrys.dir/src/items.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/lloegrys.dir/src/items.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/lloegrys.dir/src/items.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/items.cpp.o -MF CMakeFiles/lloegrys.dir/src/items.cpp.o.d -o CMakeFiles/lloegrys.dir/src/items.cpp.o -c /root/lloegrys_src/src/items.cpp
 
 CMakeFiles/lloegrys.dir/src/items.cpp.i: cmake_force
@@ -562,10 +576,24 @@ CMakeFiles/lloegrys.dir/src/items.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lloegrys.dir/src/items.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/lloegrys_src/src/items.cpp -o CMakeFiles/lloegrys.dir/src/items.cpp.s
 
+CMakeFiles/lloegrys.dir/src/logger.cpp.o: CMakeFiles/lloegrys.dir/flags.make
+CMakeFiles/lloegrys.dir/src/logger.cpp.o: /root/lloegrys_src/src/logger.cpp
+CMakeFiles/lloegrys.dir/src/logger.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/lloegrys.dir/src/logger.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/logger.cpp.o -MF CMakeFiles/lloegrys.dir/src/logger.cpp.o.d -o CMakeFiles/lloegrys.dir/src/logger.cpp.o -c /root/lloegrys_src/src/logger.cpp
+
+CMakeFiles/lloegrys.dir/src/logger.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lloegrys.dir/src/logger.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/lloegrys_src/src/logger.cpp > CMakeFiles/lloegrys.dir/src/logger.cpp.i
+
+CMakeFiles/lloegrys.dir/src/logger.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lloegrys.dir/src/logger.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/lloegrys_src/src/logger.cpp -o CMakeFiles/lloegrys.dir/src/logger.cpp.s
+
 CMakeFiles/lloegrys.dir/src/luascript.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/luascript.cpp.o: /root/lloegrys_src/src/luascript.cpp
 CMakeFiles/lloegrys.dir/src/luascript.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/lloegrys.dir/src/luascript.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/lloegrys.dir/src/luascript.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/luascript.cpp.o -MF CMakeFiles/lloegrys.dir/src/luascript.cpp.o.d -o CMakeFiles/lloegrys.dir/src/luascript.cpp.o -c /root/lloegrys_src/src/luascript.cpp
 
 CMakeFiles/lloegrys.dir/src/luascript.cpp.i: cmake_force
@@ -579,7 +607,7 @@ CMakeFiles/lloegrys.dir/src/luascript.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/mailbox.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/mailbox.cpp.o: /root/lloegrys_src/src/mailbox.cpp
 CMakeFiles/lloegrys.dir/src/mailbox.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/lloegrys.dir/src/mailbox.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/lloegrys.dir/src/mailbox.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/mailbox.cpp.o -MF CMakeFiles/lloegrys.dir/src/mailbox.cpp.o.d -o CMakeFiles/lloegrys.dir/src/mailbox.cpp.o -c /root/lloegrys_src/src/mailbox.cpp
 
 CMakeFiles/lloegrys.dir/src/mailbox.cpp.i: cmake_force
@@ -593,7 +621,7 @@ CMakeFiles/lloegrys.dir/src/mailbox.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/map.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/map.cpp.o: /root/lloegrys_src/src/map.cpp
 CMakeFiles/lloegrys.dir/src/map.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/lloegrys.dir/src/map.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/lloegrys.dir/src/map.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/map.cpp.o -MF CMakeFiles/lloegrys.dir/src/map.cpp.o.d -o CMakeFiles/lloegrys.dir/src/map.cpp.o -c /root/lloegrys_src/src/map.cpp
 
 CMakeFiles/lloegrys.dir/src/map.cpp.i: cmake_force
@@ -607,7 +635,7 @@ CMakeFiles/lloegrys.dir/src/map.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/monster.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/monster.cpp.o: /root/lloegrys_src/src/monster.cpp
 CMakeFiles/lloegrys.dir/src/monster.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/lloegrys.dir/src/monster.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/lloegrys.dir/src/monster.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/monster.cpp.o -MF CMakeFiles/lloegrys.dir/src/monster.cpp.o.d -o CMakeFiles/lloegrys.dir/src/monster.cpp.o -c /root/lloegrys_src/src/monster.cpp
 
 CMakeFiles/lloegrys.dir/src/monster.cpp.i: cmake_force
@@ -621,7 +649,7 @@ CMakeFiles/lloegrys.dir/src/monster.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/monsters.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/monsters.cpp.o: /root/lloegrys_src/src/monsters.cpp
 CMakeFiles/lloegrys.dir/src/monsters.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/lloegrys.dir/src/monsters.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/lloegrys.dir/src/monsters.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/monsters.cpp.o -MF CMakeFiles/lloegrys.dir/src/monsters.cpp.o.d -o CMakeFiles/lloegrys.dir/src/monsters.cpp.o -c /root/lloegrys_src/src/monsters.cpp
 
 CMakeFiles/lloegrys.dir/src/monsters.cpp.i: cmake_force
@@ -635,7 +663,7 @@ CMakeFiles/lloegrys.dir/src/monsters.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/mounts.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/mounts.cpp.o: /root/lloegrys_src/src/mounts.cpp
 CMakeFiles/lloegrys.dir/src/mounts.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/lloegrys.dir/src/mounts.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/lloegrys.dir/src/mounts.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/mounts.cpp.o -MF CMakeFiles/lloegrys.dir/src/mounts.cpp.o.d -o CMakeFiles/lloegrys.dir/src/mounts.cpp.o -c /root/lloegrys_src/src/mounts.cpp
 
 CMakeFiles/lloegrys.dir/src/mounts.cpp.i: cmake_force
@@ -649,7 +677,7 @@ CMakeFiles/lloegrys.dir/src/mounts.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/movement.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/movement.cpp.o: /root/lloegrys_src/src/movement.cpp
 CMakeFiles/lloegrys.dir/src/movement.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/lloegrys.dir/src/movement.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/lloegrys.dir/src/movement.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/movement.cpp.o -MF CMakeFiles/lloegrys.dir/src/movement.cpp.o.d -o CMakeFiles/lloegrys.dir/src/movement.cpp.o -c /root/lloegrys_src/src/movement.cpp
 
 CMakeFiles/lloegrys.dir/src/movement.cpp.i: cmake_force
@@ -663,7 +691,7 @@ CMakeFiles/lloegrys.dir/src/movement.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/networkmessage.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/networkmessage.cpp.o: /root/lloegrys_src/src/networkmessage.cpp
 CMakeFiles/lloegrys.dir/src/networkmessage.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/lloegrys.dir/src/networkmessage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/lloegrys.dir/src/networkmessage.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/networkmessage.cpp.o -MF CMakeFiles/lloegrys.dir/src/networkmessage.cpp.o.d -o CMakeFiles/lloegrys.dir/src/networkmessage.cpp.o -c /root/lloegrys_src/src/networkmessage.cpp
 
 CMakeFiles/lloegrys.dir/src/networkmessage.cpp.i: cmake_force
@@ -677,7 +705,7 @@ CMakeFiles/lloegrys.dir/src/networkmessage.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/npc.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/npc.cpp.o: /root/lloegrys_src/src/npc.cpp
 CMakeFiles/lloegrys.dir/src/npc.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/lloegrys.dir/src/npc.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/lloegrys.dir/src/npc.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/npc.cpp.o -MF CMakeFiles/lloegrys.dir/src/npc.cpp.o.d -o CMakeFiles/lloegrys.dir/src/npc.cpp.o -c /root/lloegrys_src/src/npc.cpp
 
 CMakeFiles/lloegrys.dir/src/npc.cpp.i: cmake_force
@@ -691,7 +719,7 @@ CMakeFiles/lloegrys.dir/src/npc.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/otpch.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/otpch.cpp.o: /root/lloegrys_src/src/otpch.cpp
 CMakeFiles/lloegrys.dir/src/otpch.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/lloegrys.dir/src/otpch.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/lloegrys.dir/src/otpch.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/otpch.cpp.o -MF CMakeFiles/lloegrys.dir/src/otpch.cpp.o.d -o CMakeFiles/lloegrys.dir/src/otpch.cpp.o -c /root/lloegrys_src/src/otpch.cpp
 
 CMakeFiles/lloegrys.dir/src/otpch.cpp.i: cmake_force
@@ -705,7 +733,7 @@ CMakeFiles/lloegrys.dir/src/otpch.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/otserv.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/otserv.cpp.o: /root/lloegrys_src/src/otserv.cpp
 CMakeFiles/lloegrys.dir/src/otserv.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/lloegrys.dir/src/otserv.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/lloegrys.dir/src/otserv.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/otserv.cpp.o -MF CMakeFiles/lloegrys.dir/src/otserv.cpp.o.d -o CMakeFiles/lloegrys.dir/src/otserv.cpp.o -c /root/lloegrys_src/src/otserv.cpp
 
 CMakeFiles/lloegrys.dir/src/otserv.cpp.i: cmake_force
@@ -719,7 +747,7 @@ CMakeFiles/lloegrys.dir/src/otserv.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/outfit.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/outfit.cpp.o: /root/lloegrys_src/src/outfit.cpp
 CMakeFiles/lloegrys.dir/src/outfit.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/lloegrys.dir/src/outfit.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/lloegrys.dir/src/outfit.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/outfit.cpp.o -MF CMakeFiles/lloegrys.dir/src/outfit.cpp.o.d -o CMakeFiles/lloegrys.dir/src/outfit.cpp.o -c /root/lloegrys_src/src/outfit.cpp
 
 CMakeFiles/lloegrys.dir/src/outfit.cpp.i: cmake_force
@@ -733,7 +761,7 @@ CMakeFiles/lloegrys.dir/src/outfit.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/outputmessage.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/outputmessage.cpp.o: /root/lloegrys_src/src/outputmessage.cpp
 CMakeFiles/lloegrys.dir/src/outputmessage.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/lloegrys.dir/src/outputmessage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/lloegrys.dir/src/outputmessage.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/outputmessage.cpp.o -MF CMakeFiles/lloegrys.dir/src/outputmessage.cpp.o.d -o CMakeFiles/lloegrys.dir/src/outputmessage.cpp.o -c /root/lloegrys_src/src/outputmessage.cpp
 
 CMakeFiles/lloegrys.dir/src/outputmessage.cpp.i: cmake_force
@@ -747,7 +775,7 @@ CMakeFiles/lloegrys.dir/src/outputmessage.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/party.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/party.cpp.o: /root/lloegrys_src/src/party.cpp
 CMakeFiles/lloegrys.dir/src/party.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/lloegrys.dir/src/party.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/lloegrys.dir/src/party.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/party.cpp.o -MF CMakeFiles/lloegrys.dir/src/party.cpp.o.d -o CMakeFiles/lloegrys.dir/src/party.cpp.o -c /root/lloegrys_src/src/party.cpp
 
 CMakeFiles/lloegrys.dir/src/party.cpp.i: cmake_force
@@ -761,7 +789,7 @@ CMakeFiles/lloegrys.dir/src/party.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/player.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/player.cpp.o: /root/lloegrys_src/src/player.cpp
 CMakeFiles/lloegrys.dir/src/player.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/lloegrys.dir/src/player.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/lloegrys.dir/src/player.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/player.cpp.o -MF CMakeFiles/lloegrys.dir/src/player.cpp.o.d -o CMakeFiles/lloegrys.dir/src/player.cpp.o -c /root/lloegrys_src/src/player.cpp
 
 CMakeFiles/lloegrys.dir/src/player.cpp.i: cmake_force
@@ -775,7 +803,7 @@ CMakeFiles/lloegrys.dir/src/player.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/position.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/position.cpp.o: /root/lloegrys_src/src/position.cpp
 CMakeFiles/lloegrys.dir/src/position.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/lloegrys.dir/src/position.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/lloegrys.dir/src/position.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/position.cpp.o -MF CMakeFiles/lloegrys.dir/src/position.cpp.o.d -o CMakeFiles/lloegrys.dir/src/position.cpp.o -c /root/lloegrys_src/src/position.cpp
 
 CMakeFiles/lloegrys.dir/src/position.cpp.i: cmake_force
@@ -789,7 +817,7 @@ CMakeFiles/lloegrys.dir/src/position.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/protocol.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/protocol.cpp.o: /root/lloegrys_src/src/protocol.cpp
 CMakeFiles/lloegrys.dir/src/protocol.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/lloegrys.dir/src/protocol.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/lloegrys.dir/src/protocol.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/protocol.cpp.o -MF CMakeFiles/lloegrys.dir/src/protocol.cpp.o.d -o CMakeFiles/lloegrys.dir/src/protocol.cpp.o -c /root/lloegrys_src/src/protocol.cpp
 
 CMakeFiles/lloegrys.dir/src/protocol.cpp.i: cmake_force
@@ -803,7 +831,7 @@ CMakeFiles/lloegrys.dir/src/protocol.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/protocolgame.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/protocolgame.cpp.o: /root/lloegrys_src/src/protocolgame.cpp
 CMakeFiles/lloegrys.dir/src/protocolgame.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/lloegrys.dir/src/protocolgame.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/lloegrys.dir/src/protocolgame.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/protocolgame.cpp.o -MF CMakeFiles/lloegrys.dir/src/protocolgame.cpp.o.d -o CMakeFiles/lloegrys.dir/src/protocolgame.cpp.o -c /root/lloegrys_src/src/protocolgame.cpp
 
 CMakeFiles/lloegrys.dir/src/protocolgame.cpp.i: cmake_force
@@ -817,7 +845,7 @@ CMakeFiles/lloegrys.dir/src/protocolgame.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/protocollogin.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/protocollogin.cpp.o: /root/lloegrys_src/src/protocollogin.cpp
 CMakeFiles/lloegrys.dir/src/protocollogin.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/lloegrys.dir/src/protocollogin.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/lloegrys.dir/src/protocollogin.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/protocollogin.cpp.o -MF CMakeFiles/lloegrys.dir/src/protocollogin.cpp.o.d -o CMakeFiles/lloegrys.dir/src/protocollogin.cpp.o -c /root/lloegrys_src/src/protocollogin.cpp
 
 CMakeFiles/lloegrys.dir/src/protocollogin.cpp.i: cmake_force
@@ -831,7 +859,7 @@ CMakeFiles/lloegrys.dir/src/protocollogin.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/protocolold.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/protocolold.cpp.o: /root/lloegrys_src/src/protocolold.cpp
 CMakeFiles/lloegrys.dir/src/protocolold.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/lloegrys.dir/src/protocolold.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/lloegrys.dir/src/protocolold.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/protocolold.cpp.o -MF CMakeFiles/lloegrys.dir/src/protocolold.cpp.o.d -o CMakeFiles/lloegrys.dir/src/protocolold.cpp.o -c /root/lloegrys_src/src/protocolold.cpp
 
 CMakeFiles/lloegrys.dir/src/protocolold.cpp.i: cmake_force
@@ -845,7 +873,7 @@ CMakeFiles/lloegrys.dir/src/protocolold.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/protocolstatus.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/protocolstatus.cpp.o: /root/lloegrys_src/src/protocolstatus.cpp
 CMakeFiles/lloegrys.dir/src/protocolstatus.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/lloegrys.dir/src/protocolstatus.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/lloegrys.dir/src/protocolstatus.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/protocolstatus.cpp.o -MF CMakeFiles/lloegrys.dir/src/protocolstatus.cpp.o.d -o CMakeFiles/lloegrys.dir/src/protocolstatus.cpp.o -c /root/lloegrys_src/src/protocolstatus.cpp
 
 CMakeFiles/lloegrys.dir/src/protocolstatus.cpp.i: cmake_force
@@ -859,7 +887,7 @@ CMakeFiles/lloegrys.dir/src/protocolstatus.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/quests.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/quests.cpp.o: /root/lloegrys_src/src/quests.cpp
 CMakeFiles/lloegrys.dir/src/quests.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/lloegrys.dir/src/quests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/lloegrys.dir/src/quests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/quests.cpp.o -MF CMakeFiles/lloegrys.dir/src/quests.cpp.o.d -o CMakeFiles/lloegrys.dir/src/quests.cpp.o -c /root/lloegrys_src/src/quests.cpp
 
 CMakeFiles/lloegrys.dir/src/quests.cpp.i: cmake_force
@@ -873,7 +901,7 @@ CMakeFiles/lloegrys.dir/src/quests.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/raids.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/raids.cpp.o: /root/lloegrys_src/src/raids.cpp
 CMakeFiles/lloegrys.dir/src/raids.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/lloegrys.dir/src/raids.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/lloegrys.dir/src/raids.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/raids.cpp.o -MF CMakeFiles/lloegrys.dir/src/raids.cpp.o.d -o CMakeFiles/lloegrys.dir/src/raids.cpp.o -c /root/lloegrys_src/src/raids.cpp
 
 CMakeFiles/lloegrys.dir/src/raids.cpp.i: cmake_force
@@ -887,7 +915,7 @@ CMakeFiles/lloegrys.dir/src/raids.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/rsa.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/rsa.cpp.o: /root/lloegrys_src/src/rsa.cpp
 CMakeFiles/lloegrys.dir/src/rsa.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/lloegrys.dir/src/rsa.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/lloegrys.dir/src/rsa.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/rsa.cpp.o -MF CMakeFiles/lloegrys.dir/src/rsa.cpp.o.d -o CMakeFiles/lloegrys.dir/src/rsa.cpp.o -c /root/lloegrys_src/src/rsa.cpp
 
 CMakeFiles/lloegrys.dir/src/rsa.cpp.i: cmake_force
@@ -901,7 +929,7 @@ CMakeFiles/lloegrys.dir/src/rsa.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/scheduler.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/scheduler.cpp.o: /root/lloegrys_src/src/scheduler.cpp
 CMakeFiles/lloegrys.dir/src/scheduler.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/lloegrys.dir/src/scheduler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/lloegrys.dir/src/scheduler.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/scheduler.cpp.o -MF CMakeFiles/lloegrys.dir/src/scheduler.cpp.o.d -o CMakeFiles/lloegrys.dir/src/scheduler.cpp.o -c /root/lloegrys_src/src/scheduler.cpp
 
 CMakeFiles/lloegrys.dir/src/scheduler.cpp.i: cmake_force
@@ -915,7 +943,7 @@ CMakeFiles/lloegrys.dir/src/scheduler.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/scriptmanager.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/scriptmanager.cpp.o: /root/lloegrys_src/src/scriptmanager.cpp
 CMakeFiles/lloegrys.dir/src/scriptmanager.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/lloegrys.dir/src/scriptmanager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/lloegrys.dir/src/scriptmanager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/scriptmanager.cpp.o -MF CMakeFiles/lloegrys.dir/src/scriptmanager.cpp.o.d -o CMakeFiles/lloegrys.dir/src/scriptmanager.cpp.o -c /root/lloegrys_src/src/scriptmanager.cpp
 
 CMakeFiles/lloegrys.dir/src/scriptmanager.cpp.i: cmake_force
@@ -929,7 +957,7 @@ CMakeFiles/lloegrys.dir/src/scriptmanager.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/server.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/server.cpp.o: /root/lloegrys_src/src/server.cpp
 CMakeFiles/lloegrys.dir/src/server.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/lloegrys.dir/src/server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/lloegrys.dir/src/server.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/server.cpp.o -MF CMakeFiles/lloegrys.dir/src/server.cpp.o.d -o CMakeFiles/lloegrys.dir/src/server.cpp.o -c /root/lloegrys_src/src/server.cpp
 
 CMakeFiles/lloegrys.dir/src/server.cpp.i: cmake_force
@@ -943,7 +971,7 @@ CMakeFiles/lloegrys.dir/src/server.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/spawn.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/spawn.cpp.o: /root/lloegrys_src/src/spawn.cpp
 CMakeFiles/lloegrys.dir/src/spawn.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/lloegrys.dir/src/spawn.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/lloegrys.dir/src/spawn.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/spawn.cpp.o -MF CMakeFiles/lloegrys.dir/src/spawn.cpp.o.d -o CMakeFiles/lloegrys.dir/src/spawn.cpp.o -c /root/lloegrys_src/src/spawn.cpp
 
 CMakeFiles/lloegrys.dir/src/spawn.cpp.i: cmake_force
@@ -957,7 +985,7 @@ CMakeFiles/lloegrys.dir/src/spawn.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/spells.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/spells.cpp.o: /root/lloegrys_src/src/spells.cpp
 CMakeFiles/lloegrys.dir/src/spells.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/lloegrys.dir/src/spells.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/lloegrys.dir/src/spells.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/spells.cpp.o -MF CMakeFiles/lloegrys.dir/src/spells.cpp.o.d -o CMakeFiles/lloegrys.dir/src/spells.cpp.o -c /root/lloegrys_src/src/spells.cpp
 
 CMakeFiles/lloegrys.dir/src/spells.cpp.i: cmake_force
@@ -971,7 +999,7 @@ CMakeFiles/lloegrys.dir/src/spells.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/talkaction.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/talkaction.cpp.o: /root/lloegrys_src/src/talkaction.cpp
 CMakeFiles/lloegrys.dir/src/talkaction.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/lloegrys.dir/src/talkaction.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/lloegrys.dir/src/talkaction.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/talkaction.cpp.o -MF CMakeFiles/lloegrys.dir/src/talkaction.cpp.o.d -o CMakeFiles/lloegrys.dir/src/talkaction.cpp.o -c /root/lloegrys_src/src/talkaction.cpp
 
 CMakeFiles/lloegrys.dir/src/talkaction.cpp.i: cmake_force
@@ -985,7 +1013,7 @@ CMakeFiles/lloegrys.dir/src/talkaction.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/tasks.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/tasks.cpp.o: /root/lloegrys_src/src/tasks.cpp
 CMakeFiles/lloegrys.dir/src/tasks.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/lloegrys.dir/src/tasks.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/lloegrys.dir/src/tasks.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/tasks.cpp.o -MF CMakeFiles/lloegrys.dir/src/tasks.cpp.o.d -o CMakeFiles/lloegrys.dir/src/tasks.cpp.o -c /root/lloegrys_src/src/tasks.cpp
 
 CMakeFiles/lloegrys.dir/src/tasks.cpp.i: cmake_force
@@ -999,7 +1027,7 @@ CMakeFiles/lloegrys.dir/src/tasks.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/teleport.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/teleport.cpp.o: /root/lloegrys_src/src/teleport.cpp
 CMakeFiles/lloegrys.dir/src/teleport.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/lloegrys.dir/src/teleport.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/lloegrys.dir/src/teleport.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/teleport.cpp.o -MF CMakeFiles/lloegrys.dir/src/teleport.cpp.o.d -o CMakeFiles/lloegrys.dir/src/teleport.cpp.o -c /root/lloegrys_src/src/teleport.cpp
 
 CMakeFiles/lloegrys.dir/src/teleport.cpp.i: cmake_force
@@ -1013,7 +1041,7 @@ CMakeFiles/lloegrys.dir/src/teleport.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/thing.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/thing.cpp.o: /root/lloegrys_src/src/thing.cpp
 CMakeFiles/lloegrys.dir/src/thing.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/lloegrys.dir/src/thing.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/lloegrys.dir/src/thing.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/thing.cpp.o -MF CMakeFiles/lloegrys.dir/src/thing.cpp.o.d -o CMakeFiles/lloegrys.dir/src/thing.cpp.o -c /root/lloegrys_src/src/thing.cpp
 
 CMakeFiles/lloegrys.dir/src/thing.cpp.i: cmake_force
@@ -1027,7 +1055,7 @@ CMakeFiles/lloegrys.dir/src/thing.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/tile.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/tile.cpp.o: /root/lloegrys_src/src/tile.cpp
 CMakeFiles/lloegrys.dir/src/tile.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/lloegrys.dir/src/tile.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/lloegrys.dir/src/tile.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/tile.cpp.o -MF CMakeFiles/lloegrys.dir/src/tile.cpp.o.d -o CMakeFiles/lloegrys.dir/src/tile.cpp.o -c /root/lloegrys_src/src/tile.cpp
 
 CMakeFiles/lloegrys.dir/src/tile.cpp.i: cmake_force
@@ -1041,7 +1069,7 @@ CMakeFiles/lloegrys.dir/src/tile.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/tools.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/tools.cpp.o: /root/lloegrys_src/src/tools.cpp
 CMakeFiles/lloegrys.dir/src/tools.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/lloegrys.dir/src/tools.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/lloegrys.dir/src/tools.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/tools.cpp.o -MF CMakeFiles/lloegrys.dir/src/tools.cpp.o.d -o CMakeFiles/lloegrys.dir/src/tools.cpp.o -c /root/lloegrys_src/src/tools.cpp
 
 CMakeFiles/lloegrys.dir/src/tools.cpp.i: cmake_force
@@ -1055,7 +1083,7 @@ CMakeFiles/lloegrys.dir/src/tools.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/trashholder.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/trashholder.cpp.o: /root/lloegrys_src/src/trashholder.cpp
 CMakeFiles/lloegrys.dir/src/trashholder.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/lloegrys.dir/src/trashholder.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object CMakeFiles/lloegrys.dir/src/trashholder.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/trashholder.cpp.o -MF CMakeFiles/lloegrys.dir/src/trashholder.cpp.o.d -o CMakeFiles/lloegrys.dir/src/trashholder.cpp.o -c /root/lloegrys_src/src/trashholder.cpp
 
 CMakeFiles/lloegrys.dir/src/trashholder.cpp.i: cmake_force
@@ -1069,7 +1097,7 @@ CMakeFiles/lloegrys.dir/src/trashholder.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/vocation.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/vocation.cpp.o: /root/lloegrys_src/src/vocation.cpp
 CMakeFiles/lloegrys.dir/src/vocation.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/lloegrys.dir/src/vocation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object CMakeFiles/lloegrys.dir/src/vocation.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/vocation.cpp.o -MF CMakeFiles/lloegrys.dir/src/vocation.cpp.o.d -o CMakeFiles/lloegrys.dir/src/vocation.cpp.o -c /root/lloegrys_src/src/vocation.cpp
 
 CMakeFiles/lloegrys.dir/src/vocation.cpp.i: cmake_force
@@ -1083,7 +1111,7 @@ CMakeFiles/lloegrys.dir/src/vocation.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/waitlist.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/waitlist.cpp.o: /root/lloegrys_src/src/waitlist.cpp
 CMakeFiles/lloegrys.dir/src/waitlist.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object CMakeFiles/lloegrys.dir/src/waitlist.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object CMakeFiles/lloegrys.dir/src/waitlist.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/waitlist.cpp.o -MF CMakeFiles/lloegrys.dir/src/waitlist.cpp.o.d -o CMakeFiles/lloegrys.dir/src/waitlist.cpp.o -c /root/lloegrys_src/src/waitlist.cpp
 
 CMakeFiles/lloegrys.dir/src/waitlist.cpp.i: cmake_force
@@ -1097,7 +1125,7 @@ CMakeFiles/lloegrys.dir/src/waitlist.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/weapons.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/weapons.cpp.o: /root/lloegrys_src/src/weapons.cpp
 CMakeFiles/lloegrys.dir/src/weapons.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object CMakeFiles/lloegrys.dir/src/weapons.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object CMakeFiles/lloegrys.dir/src/weapons.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/weapons.cpp.o -MF CMakeFiles/lloegrys.dir/src/weapons.cpp.o.d -o CMakeFiles/lloegrys.dir/src/weapons.cpp.o -c /root/lloegrys_src/src/weapons.cpp
 
 CMakeFiles/lloegrys.dir/src/weapons.cpp.i: cmake_force
@@ -1111,7 +1139,7 @@ CMakeFiles/lloegrys.dir/src/weapons.cpp.s: cmake_force
 CMakeFiles/lloegrys.dir/src/wildcardtree.cpp.o: CMakeFiles/lloegrys.dir/flags.make
 CMakeFiles/lloegrys.dir/src/wildcardtree.cpp.o: /root/lloegrys_src/src/wildcardtree.cpp
 CMakeFiles/lloegrys.dir/src/wildcardtree.cpp.o: CMakeFiles/lloegrys.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object CMakeFiles/lloegrys.dir/src/wildcardtree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object CMakeFiles/lloegrys.dir/src/wildcardtree.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/lloegrys.dir/src/wildcardtree.cpp.o -MF CMakeFiles/lloegrys.dir/src/wildcardtree.cpp.o.d -o CMakeFiles/lloegrys.dir/src/wildcardtree.cpp.o -c /root/lloegrys_src/src/wildcardtree.cpp
 
 CMakeFiles/lloegrys.dir/src/wildcardtree.cpp.i: cmake_force
@@ -1135,6 +1163,7 @@ lloegrys_OBJECTS = \
 "CMakeFiles/lloegrys.dir/src/configmanager.cpp.o" \
 "CMakeFiles/lloegrys.dir/src/connection.cpp.o" \
 "CMakeFiles/lloegrys.dir/src/container.cpp.o" \
+"CMakeFiles/lloegrys.dir/src/crash_handler.cpp.o" \
 "CMakeFiles/lloegrys.dir/src/creature.cpp.o" \
 "CMakeFiles/lloegrys.dir/src/creatureevent.cpp.o" \
 "CMakeFiles/lloegrys.dir/src/cylinder.cpp.o" \
@@ -1159,6 +1188,7 @@ lloegrys_OBJECTS = \
 "CMakeFiles/lloegrys.dir/src/iomarket.cpp.o" \
 "CMakeFiles/lloegrys.dir/src/item.cpp.o" \
 "CMakeFiles/lloegrys.dir/src/items.cpp.o" \
+"CMakeFiles/lloegrys.dir/src/logger.cpp.o" \
 "CMakeFiles/lloegrys.dir/src/luascript.cpp.o" \
 "CMakeFiles/lloegrys.dir/src/mailbox.cpp.o" \
 "CMakeFiles/lloegrys.dir/src/map.cpp.o" \
@@ -1214,6 +1244,7 @@ lloegrys: CMakeFiles/lloegrys.dir/src/condition.cpp.o
 lloegrys: CMakeFiles/lloegrys.dir/src/configmanager.cpp.o
 lloegrys: CMakeFiles/lloegrys.dir/src/connection.cpp.o
 lloegrys: CMakeFiles/lloegrys.dir/src/container.cpp.o
+lloegrys: CMakeFiles/lloegrys.dir/src/crash_handler.cpp.o
 lloegrys: CMakeFiles/lloegrys.dir/src/creature.cpp.o
 lloegrys: CMakeFiles/lloegrys.dir/src/creatureevent.cpp.o
 lloegrys: CMakeFiles/lloegrys.dir/src/cylinder.cpp.o
@@ -1238,6 +1269,7 @@ lloegrys: CMakeFiles/lloegrys.dir/src/iomapserialize.cpp.o
 lloegrys: CMakeFiles/lloegrys.dir/src/iomarket.cpp.o
 lloegrys: CMakeFiles/lloegrys.dir/src/item.cpp.o
 lloegrys: CMakeFiles/lloegrys.dir/src/items.cpp.o
+lloegrys: CMakeFiles/lloegrys.dir/src/logger.cpp.o
 lloegrys: CMakeFiles/lloegrys.dir/src/luascript.cpp.o
 lloegrys: CMakeFiles/lloegrys.dir/src/mailbox.cpp.o
 lloegrys: CMakeFiles/lloegrys.dir/src/map.cpp.o
@@ -1286,7 +1318,7 @@ lloegrys: /usr/lib/x86_64-linux-gnu/liblua5.2.so
 lloegrys: /usr/lib/x86_64-linux-gnu/libmariadb.so
 lloegrys: /usr/lib/x86_64-linux-gnu/libpugixml.so
 lloegrys: CMakeFiles/lloegrys.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Linking CXX executable lloegrys"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/lloegrys_src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Linking CXX executable lloegrys"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lloegrys.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

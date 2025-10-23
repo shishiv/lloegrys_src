@@ -13,6 +13,7 @@ lloegrys: \
   CMakeFiles/lloegrys.dir/src/configmanager.cpp.o \
   CMakeFiles/lloegrys.dir/src/connection.cpp.o \
   CMakeFiles/lloegrys.dir/src/container.cpp.o \
+  CMakeFiles/lloegrys.dir/src/crash_handler.cpp.o \
   CMakeFiles/lloegrys.dir/src/creature.cpp.o \
   CMakeFiles/lloegrys.dir/src/creatureevent.cpp.o \
   CMakeFiles/lloegrys.dir/src/cylinder.cpp.o \
@@ -37,6 +38,7 @@ lloegrys: \
   CMakeFiles/lloegrys.dir/src/iomarket.cpp.o \
   CMakeFiles/lloegrys.dir/src/item.cpp.o \
   CMakeFiles/lloegrys.dir/src/items.cpp.o \
+  CMakeFiles/lloegrys.dir/src/logger.cpp.o \
   CMakeFiles/lloegrys.dir/src/luascript.cpp.o \
   CMakeFiles/lloegrys.dir/src/mailbox.cpp.o \
   CMakeFiles/lloegrys.dir/src/map.cpp.o \
@@ -143,6 +145,8 @@ CMakeFiles/lloegrys.dir/src/connection.cpp.o:
 
 CMakeFiles/lloegrys.dir/src/container.cpp.o:
 
+CMakeFiles/lloegrys.dir/src/crash_handler.cpp.o:
+
 CMakeFiles/lloegrys.dir/src/creature.cpp.o:
 
 CMakeFiles/lloegrys.dir/src/creatureevent.cpp.o:
@@ -190,6 +194,8 @@ CMakeFiles/lloegrys.dir/src/iomarket.cpp.o:
 CMakeFiles/lloegrys.dir/src/item.cpp.o:
 
 CMakeFiles/lloegrys.dir/src/items.cpp.o:
+
+CMakeFiles/lloegrys.dir/src/logger.cpp.o:
 
 CMakeFiles/lloegrys.dir/src/luascript.cpp.o:
 
