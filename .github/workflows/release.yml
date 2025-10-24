@@ -1,0 +1,83 @@
+name: Release Lloegrys Binary
+
+on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Override version label used for artifacts (defaults to tag or ref name)"
+        required: false
+        default: ""
+
+jobs:
+  build-linux:
+    name: Build Linux bundle
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    env:
+      BUILD_TYPE: Release
+      RELEASE_VERSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.version != '' && github.event.inputs.version || github.event.release.tag_name || github.ref_name }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            cmake \
+            libgmp-dev \
+            libboost-dev \
+            libboost-system-dev \
+            liblua5.3-dev \
+            libmariadb-dev \
+            libpugixml-dev \
+            pkg-config
+
+      - name: Configure CMake
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
+
+      - name: Build
+        run: cmake --build build --config ${BUILD_TYPE} --parallel
+
+      - name: Prepare release bundle
+        id: bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION="${RELEASE_VERSION:-${GITHUB_REF_NAME}}"
+          STAGING="lloegrys-${VERSION}-linux-x86_64"
+          mkdir -p "release/${STAGING}"
+          cp build/lloegrys "release/${STAGING}/lloegrys"
+          chmod 755 "release/${STAGING}/lloegrys"
+          cp config.lua "release/${STAGING}/config.lua.example"
+          cp schema.sql "release/${STAGING}/schema.sql"
+          cp -a data "release/${STAGING}/data"
+          tar -C release -czf "release/${STAGING}.tar.gz" "${STAGING}"
+          sha256sum "release/${STAGING}.tar.gz" > "release/${STAGING}.tar.gz.sha256"
+          echo "archive=release/${STAGING}.tar.gz" >> "$GITHUB_OUTPUT"
+          echo "checksum=release/${STAGING}.tar.gz.sha256" >> "$GITHUB_OUTPUT"
+          echo "label=${STAGING}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.bundle.outputs.label }}
+          path: |
+            ${{ steps.bundle.outputs.archive }}
+            ${{ steps.bundle.outputs.checksum }}
+
+      - name: Attach assets to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ${{ steps.bundle.outputs.archive }}
+            ${{ steps.bundle.outputs.checksum }}
+          fail_on_unmatched_files: true
+          draft: false
+          prerelease: ${{ github.event.release.prerelease }}
