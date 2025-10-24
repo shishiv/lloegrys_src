@@ -7,24 +7,73 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Override version label used for artifacts (defaults to tag or ref name)"
+        description: "Optional version label (defaults to tag/ref name)"
         required: false
         default: ""
+      prerelease:
+        description: "Mark manual dispatch as prerelease"
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  BUILD_TYPE: Release
 
 jobs:
   build-linux:
-    name: Build Linux bundle
+    name: Build & Package (Linux)
     runs-on: ubuntu-22.04
-    permissions:
-      contents: write
+    timeout-minutes: 45
     env:
-      BUILD_TYPE: Release
-      RELEASE_VERSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.version != '' && github.event.inputs.version || github.event.release.tag_name || github.ref_name }}
+      RELEASE_TAG: ${{ github.event.release.tag_name || '' }}
+      RELEASE_IS_PRERELEASE: ${{ github.event_name == 'release' && github.event.release.prerelease || false }}
+      DISPATCH_VERSION: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.version || '' }}
+      DISPATCH_PRERELEASE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.prerelease || 'false' }}
+      DEFAULT_VERSION: ${{ github.ref_name }}
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-      - name: Install build dependencies
+      - name: Resolve version metadata
+        id: meta
+        run: |
+          set -euo pipefail
+
+          version="${DISPATCH_VERSION:-}"
+          if [[ -z "${version}" ]]; then
+            version="${RELEASE_TAG:-${DEFAULT_VERSION}}"
+          fi
+
+          prerelease_flag="${RELEASE_IS_PRERELEASE}"
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            case "${DISPATCH_PRERELEASE,,}" in
+              true|1|yes) prerelease_flag="true" ;;
+              *) prerelease_flag="false" ;;
+            esac
+          fi
+
+          label="lloegrys-${version}-linux-x86_64"
+          staging="release/${label}"
+
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          echo "prerelease=${prerelease_flag}" >> "$GITHUB_OUTPUT"
+          echo "label=${label}" >> "$GITHUB_OUTPUT"
+          echo "staging=${staging}" >> "$GITHUB_OUTPUT"
+
+      - name: Provision build toolchain
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -38,44 +87,46 @@ jobs:
             libpugixml-dev \
             pkg-config
 
-      - name: Reset build directory
-        run: cmake -E rm -rf build
-
       - name: Configure CMake
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
+        run: |
+          cmake -E rm -rf build release
+          cmake -S . -B build -DCMAKE_BUILD_TYPE="${BUILD_TYPE}"
 
       - name: Build
-        run: cmake --build build --config ${BUILD_TYPE} --parallel
+        run: |
+          cmake --build build --config "${BUILD_TYPE}" --parallel
 
       - name: Prepare release bundle
         id: bundle
-        shell: bash
         run: |
           set -euo pipefail
-          VERSION="${RELEASE_VERSION:-${GITHUB_REF_NAME}}"
-          STAGING="lloegrys-${VERSION}-linux-x86_64"
-          mkdir -p "release/${STAGING}"
-          cp build/lloegrys "release/${STAGING}/lloegrys"
-          chmod 755 "release/${STAGING}/lloegrys"
-          cp config.lua "release/${STAGING}/config.lua.example"
-          cp schema.sql "release/${STAGING}/schema.sql"
-          cp -a data "release/${STAGING}/data"
-          tar -C release -czf "release/${STAGING}.tar.gz" "${STAGING}"
-          sha256sum "release/${STAGING}.tar.gz" > "release/${STAGING}.tar.gz.sha256"
-          echo "archive=release/${STAGING}.tar.gz" >> "$GITHUB_OUTPUT"
-          echo "checksum=release/${STAGING}.tar.gz.sha256" >> "$GITHUB_OUTPUT"
-          echo "label=${STAGING}" >> "$GITHUB_OUTPUT"
 
-      - name: Upload workflow artifact
+          mkdir -p "${{ steps.meta.outputs.staging }}"
+          cp build/lloegrys "${{ steps.meta.outputs.staging }}/lloegrys"
+          chmod 755 "${{ steps.meta.outputs.staging }}/lloegrys"
+          cp config.lua "${{ steps.meta.outputs.staging }}/config.lua.example"
+          cp schema.sql "${{ steps.meta.outputs.staging }}/schema.sql"
+          cp -a data "${{ steps.meta.outputs.staging }}/data"
+
+          tar -C release -czf "${{ steps.meta.outputs.staging }}.tar.gz" "${{ steps.meta.outputs.label }}"
+          sha256sum "${{ steps.meta.outputs.staging }}.tar.gz" > "${{ steps.meta.outputs.staging }}.tar.gz.sha256"
+
+          echo "archive=${{ steps.meta.outputs.staging }}.tar.gz" >> "$GITHUB_OUTPUT"
+          echo "checksum=${{ steps.meta.outputs.staging }}.tar.gz.sha256" >> "$GITHUB_OUTPUT"
+
+      - name: Upload build artifacts
+        if: steps.bundle.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ steps.bundle.outputs.label }}
+          name: ${{ steps.meta.outputs.label }}
+          compression-level: 6
+          if-no-files-found: error
           path: |
             ${{ steps.bundle.outputs.archive }}
             ${{ steps.bundle.outputs.checksum }}
 
-      - name: Attach assets to release
-        if: github.event_name == 'release'
+      - name: Attach assets to GitHub release
+        if: github.event_name == 'release' && steps.bundle.outcome == 'success'
         uses: softprops/action-gh-release@v2
         with:
           files: |
@@ -83,4 +134,16 @@ jobs:
             ${{ steps.bundle.outputs.checksum }}
           fail_on_unmatched_files: true
           draft: false
-          prerelease: ${{ github.event.release.prerelease }}
+          prerelease: ${{ steps.meta.outputs.prerelease == 'true' }}
+
+      - name: Publish summary
+        if: steps.bundle.outcome == 'success'
+        run: |
+          cat <<'EOF' >> "$GITHUB_STEP_SUMMARY"
+          ## Release bundle
+          - Version: `${{ steps.meta.outputs.version }}`
+          - Artifact name: `${{ steps.meta.outputs.label }}`
+          - Files uploaded:
+            - `${{ steps.meta.outputs.label }}.tar.gz`
+            - `${{ steps.meta.outputs.label }}.tar.gz.sha256`
+          EOF
