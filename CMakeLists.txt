@@ -5,6 +5,23 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
+option(USE_LLD "Prefer LLVM lld linker when available" OFF)
+
+set(_lloegrys_extra_link_options "")
+if(USE_LLD)
+    find_program(LLD_EXECUTABLE NAMES ld.lld lld)
+    if(LLD_EXECUTABLE)
+        message(STATUS "Using lld linker: ${LLD_EXECUTABLE}")
+        if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+            list(APPEND _lloegrys_extra_link_options "-fuse-ld=lld")
+        else()
+            message(WARNING "lld requested but current compiler does not support -fuse-ld flag")
+        endif()
+    else()
+        message(WARNING "USE_LLD enabled but lld linker was not found on PATH")
+    endif()
+endif()
+
 # ------------------------------------
 # Dependências e includes
 # ------------------------------------
@@ -77,6 +94,12 @@ target_link_libraries(lloegrys
 # ------------------------------------
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     target_compile_options(lloegrys PRIVATE -Wall -Wextra -O2 -pthread)
+    list(APPEND _lloegrys_extra_link_options "-Wl,--no-keep-memory")
+endif()
+
+if(_lloegrys_extra_link_options)
+    list(REMOVE_DUPLICATES _lloegrys_extra_link_options)
+    target_link_options(lloegrys PRIVATE ${_lloegrys_extra_link_options})
 endif()
 
 message(STATUS "✅ Configuração concluída com MariaDB")

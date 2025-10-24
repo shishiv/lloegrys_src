@@ -29,6 +29,7 @@ defaults:
 
 env:
   BUILD_TYPE: Release
+  CMAKE_BUILD_PARALLEL_LEVEL: 2
 
 jobs:
   build-linux:
@@ -79,6 +80,8 @@ jobs:
           sudo apt-get install -y \
             build-essential \
             cmake \
+            ninja-build \
+            lld \
             libgmp-dev \
             libboost-dev \
             libboost-system-dev \
@@ -90,7 +93,10 @@ jobs:
       - name: Configure CMake
         run: |
           cmake -E rm -rf build release
-          cmake -S . -B build -DCMAKE_BUILD_TYPE="${BUILD_TYPE}"
+          cmake -S . -B build -G Ninja \
+            -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" \
+            -DUSE_LLD=ON \
+            -DCMAKE_POLICY_DEFAULT_CMP0167=NEW
 
       - name: Build
         run: |
