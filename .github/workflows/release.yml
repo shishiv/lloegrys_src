@@ -38,6 +38,9 @@ jobs:
             libpugixml-dev \
             pkg-config
 
+      - name: Reset build directory
+        run: cmake -E rm -rf build
+
       - name: Configure CMake
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
 
