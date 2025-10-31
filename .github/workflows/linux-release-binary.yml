@@ -1,0 +1,45 @@
+name: Build Linux Release Binary
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-release:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            cmake \
+            git \
+            libboost-date-time-dev \
+            libboost-filesystem-dev \
+            libboost-iostreams-dev \
+            libboost-system-dev \
+            libcrypto++-dev \
+            libfmt-dev \
+            libluajit-5.1-dev \
+            libmariadb-dev \
+            libpugixml-dev \
+            libgmp-dev
+
+      - name: Configure (Release)
+        run: |
+          cmake -S . -B build \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DUSE_LUAJIT=ON
+
+      - name: Build
+        run: cmake --build build --config Release --parallel $(nproc)
+
+      - name: Upload release binary
+        uses: actions/upload-artifact@v3
+        with:
+          name: linux-release-lloegrys
+          path: build/lloegrys
