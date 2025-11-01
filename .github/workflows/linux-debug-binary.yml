@@ -22,7 +22,7 @@ jobs:
             libboost-filesystem-dev \
             libboost-iostreams-dev \
             libboost-system-dev \
-            libluajit-5.1-dev \
+            liblua5.2-dev \
             libmariadb-dev \
             libpugixml-dev \
             libgmp-dev
@@ -30,8 +30,7 @@ jobs:
       - name: Configure (Debug)
         run: |
           cmake -S . -B build \
-            -DCMAKE_BUILD_TYPE=Debug \
-            -DUSE_LUAJIT=ON
+            -DCMAKE_BUILD_TYPE=Debug
 
       - name: Build
         run: cmake --build build --config Debug --parallel $(nproc)

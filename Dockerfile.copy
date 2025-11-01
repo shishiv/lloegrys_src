@@ -11,15 +11,13 @@ RUN useradd -m -u 1001 lloegrysuser
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         libgmp10 \
-        libluajit-5.1-2 \
+        liblua5.2-0 \
         libpugixml1v5 \
         libmariadb3 \
         python3 \
         file \
         procps \
-        iproute2 \
-        coreutils && \
-    ldconfig && \
+        iproute2 && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy application files
