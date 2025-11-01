@@ -45,15 +45,46 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 # Lua (compatível com 5.2, 5.3 ou LuaJIT)
 if(USE_LUAJIT)
-    find_path(LUA_INCLUDE_DIR luajit.h /usr/include /usr/include/luajit-2.1)
-    find_library(LUA_LIBRARY NAMES luajit-5.1)
+    find_package(PkgConfig QUIET)
+    if(PkgConfig_FOUND)
+        pkg_check_modules(LUAJIT QUIET luajit)
+    endif()
+
+    if(LUAJIT_FOUND)
+        set(LUA_INCLUDE_DIR "${LUAJIT_INCLUDE_DIRS}")
+        set(LUA_LIBRARY "${LUAJIT_LIBRARIES}")
+    endif()
+
+    if(NOT LUA_INCLUDE_DIR)
+        find_path(LUA_INCLUDE_DIR
+            NAMES luajit.h lua.hpp
+            PATHS /usr/include /usr/local/include
+            PATH_SUFFIXES luajit-2.1 include/luajit-2.1
+        )
+    endif()
+
+    if(NOT LUA_LIBRARY)
+        find_library(LUA_LIBRARY
+            NAMES luajit-5.1 luajit
+            PATHS /usr/lib /usr/local/lib /usr/lib/x86_64-linux-gnu
+        )
+    endif()
+
     if(NOT LUA_INCLUDE_DIR OR NOT LUA_LIBRARY)
         message(FATAL_ERROR "LuaJIT not found. Install libluajit-5.1-dev")
     endif()
+
     message(STATUS "Using LuaJIT: ${LUA_LIBRARY}")
 else()
-    find_path(LUA_INCLUDE_DIR lua.hpp /usr/include /usr/include/lua5.2 /usr/include/lua5.3)
-    find_library(LUA_LIBRARY NAMES lua5.2 lua5.3)
+    find_path(LUA_INCLUDE_DIR
+        NAMES lua.hpp lua.h
+        PATHS /usr/include /usr/local/include
+        PATH_SUFFIXES lua5.4 lua5.3 lua5.2 lua
+    )
+    find_library(LUA_LIBRARY
+        NAMES lua5.4 lua5.3 lua5.2 lua
+        PATHS /usr/lib /usr/local/lib /usr/lib/x86_64-linux-gnu
+    )
     if(NOT LUA_INCLUDE_DIR OR NOT LUA_LIBRARY)
         message(FATAL_ERROR "Lua not found. Install liblua5.2-dev or liblua5.3-dev")
     endif()
