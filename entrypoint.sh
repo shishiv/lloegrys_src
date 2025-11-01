@@ -34,13 +34,16 @@ fi
 echo ""
 
 echo "6. Environment Variables:"
-env | grep -E "(GAMEPLAY|PYTHON|PATH|HOME)" | sort
+env | grep -E "(LLOEGRYS|PYTHON|PATH|HOME)" | sort
 echo ""
 
 echo "7. Testing binary execution with verbose output (5 seconds):"
 echo "Running server to test startup..."
 echo "Note: Server will run in watchdog mode below for full operation"
 echo ""
+
+# Create log directory to ensure it exists before binary starts
+mkdir -p /var/log/lloegrys /opt/lloegrys/logs 2>/dev/null || true
 
 # Run with timeout and capture all output
 timeout 5 /opt/lloegrys/lloegrys 2>&1 | tee /tmp/startup_test.log || EXIT_CODE=$?
@@ -51,15 +54,39 @@ echo ""
 
 if [ -f /tmp/startup_test.log ]; then
     LOG_SIZE=$(wc -l < /tmp/startup_test.log)
-    echo "Captured ${LOG_SIZE} lines of output"
+    echo "Captured ${LOG_SIZE} lines of stdout/stderr"
     if [ "${LOG_SIZE}" -gt 0 ]; then
         echo "--- Server Startup Output (first 50 lines) ---"
         head -50 /tmp/startup_test.log
         echo "--- End Output ---"
     else
-        echo "⚠ WARNING: No output captured! Server may be crashing silently."
+        echo "⚠ No stdout/stderr captured (server logs to files)"
     fi
 fi
+
+echo ""
+echo "8. Checking for log files created during test:"
+
+# Find ALL log files created in the last minute
+echo "All log files created recently:"
+find /var/log/lloegrys /opt/lloegrys/logs /opt/lloegrys -type f -name "*.log" -mmin -1 2>/dev/null | while read -r logfile; do
+    echo "  Found: $logfile"
+    LOG_LINES=$(wc -l < "$logfile" 2>/dev/null || echo "0")
+    echo "    Size: $(stat -c%s "$logfile" 2>/dev/null || echo "0") bytes, Lines: ${LOG_LINES}"
+    if [ "${LOG_LINES}" -gt 0 ]; then
+        echo "    --- Content (first 100 lines) ---"
+        head -100 "$logfile"
+        echo "    --- End ---"
+    fi
+done
+
+# Also check for server.log specifically
+if [ -f /var/log/lloegrys/server.log ]; then
+    echo "✓ Found /var/log/lloegrys/server.log"
+else
+    echo "✗ No log file at /var/log/lloegrys/server.log"
+fi
+echo ""
 
 if [ "${EXIT_CODE:-0}" -eq 124 ]; then
     echo "✓ Binary started successfully (timeout as expected)"
@@ -101,7 +128,7 @@ echo "Starting server health monitor..."
             fi
 
             # Check for log files and tail them
-            for logfile in /opt/lloegrys/*.log /opt/lloegrys/logs/*.log; do
+            for logfile in /opt/lloegrys/*.log /opt/lloegrys/logs/*.log /var/log/lloegrys/*.log; do
                 if [ -f "$logfile" ] && ! pgrep -f "tail -f $logfile" > /dev/null; then
                     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Found log file: $logfile"
                     tail -f "$logfile" &

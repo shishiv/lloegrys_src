@@ -26,12 +26,14 @@ COPY --chown=lloegrysuser:lloegrysuser ./watchdog.py /opt/watchdog.py
 COPY --chown=lloegrysuser:lloegrysuser ./entrypoint.sh /opt/entrypoint.sh
 
 # Environment setup
-ENV GAMEPLAY_LOG_LEVEL=debug
+ENV LLOEGRYS_LOG_FILE=/var/log/lloegrys/server.log
+ENV LLOEGRYS_LOG_LEVEL=debug
 ENV PYTHONUNBUFFERED=1
 WORKDIR /opt/lloegrys
 
-# Set up log directory and permissions
-RUN mkdir -p /var/log/lloegrys && chown -R lloegrysuser:lloegrysuser /var/log/lloegrys && \
+# Set up log directories and permissions
+RUN mkdir -p /var/log/lloegrys /opt/lloegrys/logs && \
+    chown -R lloegrysuser:lloegrysuser /var/log/lloegrys /opt/lloegrys/logs && \
     chmod +x /opt/lloegrys/lloegrys && \
     chmod +x /opt/entrypoint.sh
 
