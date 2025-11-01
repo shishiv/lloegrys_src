@@ -1,3 +1,0 @@
-/root/lloegrys_src/build/CMakeFiles/lloegrys.dir
-/root/lloegrys_src/build/CMakeFiles/edit_cache.dir
-/root/lloegrys_src/build/CMakeFiles/rebuild_cache.dir
