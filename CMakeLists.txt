@@ -105,20 +105,6 @@ if(NOT PUGIXML_INCLUDE_DIR OR NOT PUGIXML_LIBRARY)
     message(FATAL_ERROR "PugiXML not found. Install libpugixml-dev")
 endif()
 
-# Crypto++
-find_path(CRYPTOPP_INCLUDE_DIR cryptopp/cryptlib.h /usr/include /usr/local/include)
-find_library(CRYPTOPP_LIBRARY NAMES cryptopp crypto++)
-if(NOT CRYPTOPP_INCLUDE_DIR OR NOT CRYPTOPP_LIBRARY)
-    message(FATAL_ERROR "Crypto++ not found. Install libcrypto++-dev")
-endif()
-
-# fmt
-find_path(FMT_INCLUDE_DIR fmt/format.h /usr/include /usr/local/include)
-find_library(FMT_LIBRARY NAMES fmt)
-if(NOT FMT_INCLUDE_DIR OR NOT FMT_LIBRARY)
-    message(FATAL_ERROR "fmt not found. Install libfmt-dev")
-endif()
-
 # ------------------------------------
 # Includes e fontes
 # ------------------------------------
@@ -128,8 +114,6 @@ include_directories(
     ${LUA_INCLUDE_DIR}
     ${MARIADB_INCLUDE_DIR}
     ${PUGIXML_INCLUDE_DIR}
-    ${CRYPTOPP_INCLUDE_DIR}
-    ${FMT_INCLUDE_DIR}
     ${CMAKE_SOURCE_DIR}/src
 )
 
@@ -149,8 +133,6 @@ target_link_libraries(lloegrys
     ${LUA_LIBRARY}
     ${MARIADB_LIBRARY}
     ${PUGIXML_LIBRARY}
-    ${CRYPTOPP_LIBRARY}
-    ${FMT_LIBRARY}
     pthread
 )
 

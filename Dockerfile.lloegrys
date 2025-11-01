@@ -1,0 +1,29 @@
+# Use Ubuntu base since the bundled OT binary expects glibc-compatible environment
+FROM ubuntu:latest
+
+# Install missing shared libraries and Python runtime for the watchdog
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends gnupg \
+    && echo "deb [trusted=yes] http://archive.debian.org/debian buster main" > /etc/apt/sources.list.d/buster.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends --allow-unauthenticated libmysqlclient21 libmariadb3 \
+    && rm /etc/apt/sources.list.d/buster.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libgmp10 \
+        liblua5.2-0 \
+        libpugixml1v5 \
+        python3 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy the application files
+COPY ./_bin /opt/lloegrys/
+COPY ./watchdog.py /opt/watchdog.py
+
+ENV GAMEPLAY_LOG_LEVEL=debug
+# Set permissions and working directory
+WORKDIR /opt/lloegrys
+RUN chmod +x /opt/lloegrys/lloegrys && mkdir -p /var/log/lloegrys
+
+# Define the entrypoint
+CMD ["python3", "/opt/watchdog.py", "--working-dir", "/opt/lloegrys", "--log-dir", "/var/log/lloegrys", "--", "/opt/lloegrys/lloegrys"]
