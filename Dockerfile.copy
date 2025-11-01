@@ -17,7 +17,9 @@ RUN apt-get update && \
         python3 \
         file \
         procps \
-        iproute2 && \
+        iproute2 \
+        coreutils && \
+    ldconfig && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy application files

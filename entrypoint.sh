@@ -14,6 +14,20 @@ echo "2. Library Dependencies:"
 ldd /opt/lloegrys/lloegrys
 echo ""
 
+echo "2a. Verifying LuaJIT library installation:"
+if [ -f /lib/x86_64-linux-gnu/libluajit-5.1.so.2 ]; then
+    echo "✓ libluajit-5.1.so.2 found at /lib/x86_64-linux-gnu/libluajit-5.1.so.2"
+    ls -lah /lib/x86_64-linux-gnu/libluajit-5.1.so.2*
+else
+    echo "✗ libluajit-5.1.so.2 NOT FOUND at /lib/x86_64-linux-gnu/"
+    echo "Searching for LuaJIT libraries:"
+    find /lib /usr/lib -name "*luajit*" 2>/dev/null || echo "  No LuaJIT libraries found!"
+fi
+
+echo "Checking if libluajit is in ldconfig cache:"
+ldconfig -p | grep luajit || echo "  Not in ldconfig cache"
+echo ""
+
 echo "3. Binary Permissions:"
 ls -lah /opt/lloegrys/lloegrys
 echo ""
@@ -45,8 +59,9 @@ echo ""
 # Create log directory to ensure it exists before binary starts
 mkdir -p /var/log/lloegrys /opt/lloegrys/logs 2>/dev/null || true
 
-# Run with timeout and capture all output
-timeout 5 /opt/lloegrys/lloegrys 2>&1 | tee /tmp/startup_test.log || EXIT_CODE=$?
+# Run with timeout, unbuffered output, and capture everything
+# Using stdbuf to force unbuffered stdout/stderr
+timeout 5 stdbuf -o0 -e0 /opt/lloegrys/lloegrys 2>&1 | tee /tmp/startup_test.log || EXIT_CODE=$?
 
 echo ""
 echo "Exit code: ${EXIT_CODE:-0}"
@@ -67,15 +82,17 @@ fi
 echo ""
 echo "8. Checking for log files created during test:"
 
-# Find ALL log files created in the last minute
-echo "All log files created recently:"
-find /var/log/lloegrys /opt/lloegrys/logs /opt/lloegrys -type f -name "*.log" -mmin -1 2>/dev/null | while read -r logfile; do
+# Find ALL log files (not just recent ones, to see full history)
+echo "All log files found:"
+find /var/log/lloegrys /opt/lloegrys/logs /opt/lloegrys -type f -name "*.log" 2>/dev/null | while read -r logfile; do
     echo "  Found: $logfile"
     LOG_LINES=$(wc -l < "$logfile" 2>/dev/null || echo "0")
-    echo "    Size: $(stat -c%s "$logfile" 2>/dev/null || echo "0") bytes, Lines: ${LOG_LINES}"
+    FILE_SIZE=$(stat -c%s "$logfile" 2>/dev/null || echo "0")
+    MODIFIED=$(stat -c%y "$logfile" 2>/dev/null || echo "unknown")
+    echo "    Size: ${FILE_SIZE} bytes, Lines: ${LOG_LINES}, Modified: ${MODIFIED}"
     if [ "${LOG_LINES}" -gt 0 ]; then
-        echo "    --- Content (first 100 lines) ---"
-        head -100 "$logfile"
+        echo "    --- Last 50 lines (most recent) ---"
+        tail -50 "$logfile"
         echo "    --- End ---"
     fi
 done
@@ -85,6 +102,22 @@ if [ -f /var/log/lloegrys/server.log ]; then
     echo "✓ Found /var/log/lloegrys/server.log"
 else
     echo "✗ No log file at /var/log/lloegrys/server.log"
+fi
+
+# Check for crash reports
+if [ -d /var/log/lloegrys/crashes ]; then
+    echo ""
+    echo "Crash reports found:"
+    ls -lah /var/log/lloegrys/crashes/ 2>/dev/null || echo "  (empty)"
+    # Show the most recent crash report
+    LATEST_CRASH=$(ls -t /var/log/lloegrys/crashes/*.log 2>/dev/null | head -1)
+    if [ -n "$LATEST_CRASH" ]; then
+        echo ""
+        echo "Most recent crash report: $LATEST_CRASH"
+        echo "--- Content ---"
+        cat "$LATEST_CRASH"
+        echo "--- End ---"
+    fi
 fi
 echo ""
 
