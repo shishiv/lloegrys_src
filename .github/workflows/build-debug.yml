@@ -1,0 +1,87 @@
+name: Build Debug
+
+on:
+  push:
+    branches:
+      - develop
+      - dev
+      - feature/*
+      - bugfix/*
+  pull_request:
+    branches:
+      - develop
+      - dev
+  workflow_dispatch:
+
+jobs:
+  build-ubuntu-debug:
+    name: Build Ubuntu ${{ matrix.ubuntu }} Debug
+    runs-on: ubuntu-${{ matrix.ubuntu }}
+
+    strategy:
+      matrix:
+        ubuntu: ['20.04', '22.04']
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            /var/cache/apt/archives
+          key: ${{ runner.os }}-${{ matrix.ubuntu }}-deps-${{ hashFiles('CMakeLists.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.ubuntu }}-deps-
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential \
+            cmake \
+            git \
+            libgmp-dev \
+            libboost-system-dev \
+            liblua5.2-dev \
+            libmariadb-dev \
+            libpugixml-dev
+
+      - name: Configure CMake (Debug)
+        run: |
+          mkdir -p build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Debug ..
+
+      - name: Build
+        run: |
+          cd build
+          make -j$(nproc)
+
+      - name: Get version info
+        id: version
+        run: |
+          echo "commit_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "version=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lloegrys-ubuntu-${{ matrix.ubuntu }}-debug-${{ steps.version.outputs.version }}
+          path: build/lloegrys
+          retention-days: 30
+          compression-level: 9
+
+      - name: Binary info
+        run: |
+          echo "Binary size:"
+          ls -lh build/lloegrys
+          echo ""
+          echo "Binary type:"
+          file build/lloegrys
+          echo ""
+          echo "Debug symbols:"
+          objdump -h build/lloegrys | grep debug || echo "No debug sections found"

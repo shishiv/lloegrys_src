@@ -1,0 +1,57 @@
+# Build artifacts
+build/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+
+# Git files
+.git/
+.gitignore
+.gitmodules
+.gitattributes
+
+# GitHub Actions
+.github/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# CI/CD
+.travis.yml
+
+# Documentation
+*.md
+README*
+CHANGELOG*
+LICENSE*
+docs/
+
+# Test files
+tests/
+test/
+*.test
+
+# Development scripts
+scripts/
+tools/
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+*.backup
+
+# Don't copy existing binary from _bin (we'll copy specific files)
+_bin/lloegrys
+_bin/*.log
+_bin/*.tmp
+
+# Only keep lloegrys.stable in _bin
+# (The Dockerfile will copy all _bin but this reduces context size)

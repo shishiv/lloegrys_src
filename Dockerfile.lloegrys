@@ -1,0 +1,47 @@
+# Use Ubuntu 22.04 LTS for stable runtime environment
+FROM ubuntu:22.04
+
+# Prevent interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install runtime dependencies in a single layer
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    # Core runtime libraries
+    libgmp10 \
+    liblua5.2-0 \
+    libpugixml1v5 \
+    libmariadb3 \
+    libboost-system1.74.0 \
+    # Python for watchdog
+    python3 \
+    # Cleanup
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Create necessary directories
+RUN mkdir -p /opt/lloegrys /var/log/lloegrys
+
+# Copy the application files
+COPY ./_bin /opt/lloegrys/
+COPY ./watchdog.py /opt/watchdog.py
+
+# Set permissions
+RUN chmod +x /opt/lloegrys/lloegrys /opt/watchdog.py
+
+# Set working directory
+WORKDIR /opt/lloegrys
+
+# Expose game server ports
+# 7171 - Login port
+# 7172 - Game port
+EXPOSE 7171 7172
+
+# Create volume for persistent logs
+VOLUME ["/var/log/lloegrys"]
+
+# Healthcheck to ensure server is running
+HEALTHCHECK --interval=60s --timeout=10s --start-period=30s --retries=3 \
+    CMD pgrep -f lloegrys || exit 1
+
+# Start server with watchdog
+CMD ["python3", "/opt/watchdog.py", "--working-dir", "/opt/lloegrys", "--log-dir", "/var/log/lloegrys", "--", "/opt/lloegrys/lloegrys"]
