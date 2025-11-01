@@ -15,12 +15,8 @@ on:
 
 jobs:
   build-ubuntu-debug:
-    name: Build Ubuntu ${{ matrix.ubuntu }} Debug
-    runs-on: ubuntu-${{ matrix.ubuntu }}
-
-    strategy:
-      matrix:
-        ubuntu: ['20.04', '22.04']
+    name: Build Ubuntu 22.04 Debug
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
@@ -33,9 +29,9 @@ jobs:
         with:
           path: |
             /var/cache/apt/archives
-          key: ${{ runner.os }}-${{ matrix.ubuntu }}-deps-${{ hashFiles('CMakeLists.txt') }}
+          key: ${{ runner.os }}-22.04-deps-${{ hashFiles('CMakeLists.txt') }}
           restore-keys: |
-            ${{ runner.os }}-${{ matrix.ubuntu }}-deps-
+            ${{ runner.os }}-22.04-deps-
 
       - name: Install dependencies
         run: |
@@ -70,7 +66,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: lloegrys-ubuntu-${{ matrix.ubuntu }}-debug-${{ steps.version.outputs.version }}
+          name: lloegrys-ubuntu-22.04-debug-${{ steps.version.outputs.version }}
           path: build/lloegrys
           retention-days: 30
           compression-level: 9

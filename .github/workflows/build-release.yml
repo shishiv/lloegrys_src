@@ -16,12 +16,8 @@ on:
 
 jobs:
   build-ubuntu-release:
-    name: Build Ubuntu ${{ matrix.ubuntu }} Release
-    runs-on: ubuntu-${{ matrix.ubuntu }}
-
-    strategy:
-      matrix:
-        ubuntu: ['20.04', '22.04']
+    name: Build Ubuntu 22.04 Release
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
@@ -34,9 +30,9 @@ jobs:
         with:
           path: |
             /var/cache/apt/archives
-          key: ${{ runner.os }}-${{ matrix.ubuntu }}-deps-${{ hashFiles('CMakeLists.txt') }}
+          key: ${{ runner.os }}-22.04-deps-${{ hashFiles('CMakeLists.txt') }}
           restore-keys: |
-            ${{ runner.os }}-${{ matrix.ubuntu }}-deps-
+            ${{ runner.os }}-22.04-deps-
 
       - name: Install dependencies
         run: |
@@ -79,7 +75,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: lloegrys-ubuntu-${{ matrix.ubuntu }}-release-${{ steps.version.outputs.version }}
+          name: lloegrys-ubuntu-22.04-release-${{ steps.version.outputs.version }}
           path: build/lloegrys
           retention-days: 90
           compression-level: 9
@@ -88,14 +84,14 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         run: |
           mkdir -p release
-          cp build/lloegrys release/lloegrys-ubuntu-${{ matrix.ubuntu }}-release
+          cp build/lloegrys release/lloegrys-ubuntu-22.04-release
           cd release
-          tar -czf lloegrys-ubuntu-${{ matrix.ubuntu }}-release.tar.gz lloegrys-ubuntu-${{ matrix.ubuntu }}-release
+          tar -czf lloegrys-ubuntu-22.04-release.tar.gz lloegrys-ubuntu-22.04-release
 
       - name: Upload to GitHub Release (on tag)
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
-          files: release/lloegrys-ubuntu-${{ matrix.ubuntu }}-release.tar.gz
+          files: release/lloegrys-ubuntu-22.04-release.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
