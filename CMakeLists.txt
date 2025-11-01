@@ -76,7 +76,14 @@ target_link_libraries(lloegrys
 # Flags de compilação
 # ------------------------------------
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    target_compile_options(lloegrys PRIVATE -Wall -Wextra -O2 -pthread)
+    target_compile_options(lloegrys PRIVATE
+        -Wall
+        -Wextra
+        -O2
+        -pthread
+        # Desabilita rastreamento de variáveis em Debug para evitar warnings em funções grandes
+        $<$<CONFIG:Debug>:-fno-var-tracking-assignments>
+    )
 endif()
 
 message(STATUS "✅ Configuração concluída com MariaDB")
