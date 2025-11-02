@@ -477,11 +477,12 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xF1: parseQuestLine(msg); break;
 		case 0xF2: /* rule violation report */ break;
 		case 0xF3: /* get object info */ break;
-		case 0xF4: parseMarketLeave(); break;
-		case 0xF5: parseMarketBrowse(msg); break;
-		case 0xF6: parseMarketCreateOffer(msg); break;
-		case 0xF7: parseMarketCancelOffer(msg); break;
-		case 0xF8: parseMarketAcceptOffer(msg); break;
+		// Market system disabled
+		// case 0xF4: parseMarketLeave(); break;
+		// case 0xF5: parseMarketBrowse(msg); break;
+		// case 0xF6: parseMarketCreateOffer(msg); break;
+		// case 0xF7: parseMarketCancelOffer(msg); break;
+		// case 0xF8: parseMarketAcceptOffer(msg); break;
 		case 0xF9: parseModalWindowAnswer(msg); break;
 
 		default:

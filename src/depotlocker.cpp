@@ -22,7 +22,7 @@
 #include "depotlocker.h"
 
 DepotLocker::DepotLocker(uint16_t type) :
-	Container(type, 3), depotId(0) {}
+	Container(type, 2), depotId(0) {} // Changed from 3 to 2 to remove market depot slot
 
 Attr_ReadValue DepotLocker::readAttr(AttrTypes_t attr, PropStream& propStream)
 {

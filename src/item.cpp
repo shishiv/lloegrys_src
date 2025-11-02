@@ -1079,96 +1079,99 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 				s << "magic level " << std::showpos << it.abilities->stats[STAT_MAGICPOINTS] << std::noshowpos;
 			}
 
-			int16_t show = it.abilities->absorbPercent[0];
-			if (show != 0) {
-				for (size_t i = 1; i < COMBAT_COUNT; ++i) {
-					if (it.abilities->absorbPercent[i] != show) {
-						show = 0;
-						break;
-					}
-				}
-			}
+			// Normal resistance display removed (armor section) - attributes still function internally
+			// int16_t show = it.abilities->absorbPercent[0];
+			// if (show != 0) {
+			// 	for (size_t i = 1; i < COMBAT_COUNT; ++i) {
+			// 		if (it.abilities->absorbPercent[i] != show) {
+			// 			show = 0;
+			// 			break;
+			// 		}
+			// 	}
+			// }
 
-			if (!show) {
-				bool protectionBegin = true;
-				for (size_t i = 0; i < COMBAT_COUNT; ++i) {
-					if (it.abilities->absorbPercent[i] == 0) {
-						continue;
-					}
+			// if (!show) {
+			// 	bool protectionBegin = true;
+			// 	for (size_t i = 0; i < COMBAT_COUNT; ++i) {
+			// 		if (it.abilities->absorbPercent[i] == 0) {
+			// 			continue;
+			// 		}
 
-					if (protectionBegin) {
-						protectionBegin = false;
+			// 		if (protectionBegin) {
+			// 			protectionBegin = false;
 
-						if (begin) {
-							begin = false;
-							s << " (";
-						} else {
-							s << ", ";
-						}
+			// 			if (begin) {
+			// 				begin = false;
+			// 				s << " (";
+			// 			} else {
+			// 				s << ", ";
+			// 			}
 
-						s << "protection ";
-					} else {
-						s << ", ";
-					}
+			// 			s << "protection ";
+			// 		} else {
+			// 			s << ", ";
+			// 		}
 
-					s << getCombatName(indexToCombatType(i)) << ' ' << std::showpos << it.abilities->absorbPercent[i] << std::noshowpos << '%';
-				}
-			} else {
-				if (begin) {
-					begin = false;
-					s << " (";
-				} else {
-					s << ", ";
-				}
+			// 		s << getCombatName(indexToCombatType(i)) << ' ' << std::showpos << it.abilities->absorbPercent[i] << std::noshowpos << '%';
+			// 	}
+			// } else {
+			// 	if (begin) {
+			// 		begin = false;
+			// 		s << " (";
+			// 	} else {
+			// 		s << ", ";
+			// 	}
 
-				s << "protection all " << std::showpos << show << std::noshowpos << '%';
-			}
+			// 	s << "protection all " << std::showpos << show << std::noshowpos << '%';
+			// }
+			int16_t show = 0; // Variable still needed for field section below
 
-			show = it.abilities->fieldAbsorbPercent[0];
-			if (show != 0) {
-				for (size_t i = 1; i < COMBAT_COUNT; ++i) {
-					if (it.abilities->absorbPercent[i] != show) {
-						show = 0;
-						break;
-					}
-				}
-			}
+			// Field resistance display removed (armor section) - attributes still function internally
+			// show = it.abilities->fieldAbsorbPercent[0];
+			// if (show != 0) {
+			// 	for (size_t i = 1; i < COMBAT_COUNT; ++i) {
+			// 		if (it.abilities->absorbPercent[i] != show) {
+			// 			show = 0;
+			// 			break;
+			// 		}
+			// 	}
+			// }
 
-			if (!show) {
-				bool tmp = true;
+			// if (!show) {
+			// 	bool tmp = true;
 
-				for (size_t i = 0; i < COMBAT_COUNT; ++i) {
-					if (it.abilities->fieldAbsorbPercent[i] == 0) {
-						continue;
-					}
+			// 	for (size_t i = 0; i < COMBAT_COUNT; ++i) {
+			// 		if (it.abilities->fieldAbsorbPercent[i] == 0) {
+			// 			continue;
+			// 		}
 
-					if (tmp) {
-						tmp = false;
+			// 		if (tmp) {
+			// 			tmp = false;
 
-						if (begin) {
-							begin = false;
-							s << " (";
-						} else {
-							s << ", ";
-						}
+			// 			if (begin) {
+			// 				begin = false;
+			// 				s << " (";
+			// 			} else {
+			// 				s << ", ";
+			// 			}
 
-						s << "protection ";
-					} else {
-						s << ", ";
-					}
+			// 			s << "protection ";
+			// 		} else {
+			// 			s << ", ";
+			// 		}
 
-					s << getCombatName(indexToCombatType(i)) << " field " << std::showpos << it.abilities->fieldAbsorbPercent[i] << std::noshowpos << '%';
-				}
-			} else {
-				if (begin) {
-					begin = false;
-					s << " (";
-				} else {
-					s << ", ";
-				}
+			// 		s << getCombatName(indexToCombatType(i)) << " field " << std::showpos << it.abilities->fieldAbsorbPercent[i] << std::noshowpos << '%';
+			// 	}
+			// } else {
+			// 	if (begin) {
+			// 		begin = false;
+			// 		s << " (";
+			// 	} else {
+			// 		s << ", ";
+			// 	}
 
-				s << "protection all fields " << std::showpos << show << std::noshowpos << '%';
-			}
+			// 	s << "protection all fields " << std::showpos << show << std::noshowpos << '%';
+			// }
 
 			if (it.abilities->speed) {
 				if (begin) {
