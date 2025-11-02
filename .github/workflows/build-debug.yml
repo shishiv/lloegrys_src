@@ -3,10 +3,7 @@ name: Build Debug
 on:
   push:
     branches:
-      - develop
-      - dev
-      - feature/*
-      - bugfix/*
+      - main
   pull_request:
     branches:
       - develop
