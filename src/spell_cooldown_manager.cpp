@@ -3,6 +3,8 @@
  * Copyright (C) 2024 Lloegrys Team
  */
 
+#include "otpch.h"
+
 #include "spell_cooldown_manager.h"
 #include "player.h"
 #include "tools.h"  // For OTSYS_TIME()
