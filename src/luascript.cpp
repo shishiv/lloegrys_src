@@ -35,6 +35,8 @@
 #include "monster.h"
 #include "scheduler.h"
 #include "databasetasks.h"
+#include "lloegrys_attributes.h"
+#include "spell_cooldown_manager.h"
 
 extern Chat* g_chat;
 extern Game g_game;
@@ -2186,6 +2188,19 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Player", "getStorageValue", LuaScriptInterface::luaPlayerGetStorageValue);
 	registerMethod("Player", "setStorageValue", LuaScriptInterface::luaPlayerSetStorageValue);
+
+	// Lloegrys Attribute System
+	registerMethod("Player", "getLloegrysAttribute", LuaScriptInterface::luaPlayerGetLloegrysAttribute);
+	registerMethod("Player", "setLloegrysAttribute", LuaScriptInterface::luaPlayerSetLloegrysAttribute);
+	registerMethod("Player", "meetsAttributeRequirements", LuaScriptInterface::luaPlayerMeetsAttributeRequirements);
+	registerMethod("Player", "getCritChanceBonus", LuaScriptInterface::luaPlayerGetCritChanceBonus);
+	registerMethod("Player", "getCooldownReduction", LuaScriptInterface::luaPlayerGetCooldownReduction);
+
+	// Lloegrys Spell Cooldown System
+	registerMethod("Player", "isSpellOnCooldown", LuaScriptInterface::luaPlayerIsSpellOnCooldown);
+	registerMethod("Player", "setSpellCooldown", LuaScriptInterface::luaPlayerSetSpellCooldown);
+	registerMethod("Player", "getSpellCooldownRemaining", LuaScriptInterface::luaPlayerGetSpellCooldownRemaining);
+	registerMethod("Player", "clearSpellCooldowns", LuaScriptInterface::luaPlayerClearSpellCooldowns);
 
 	registerMethod("Player", "addItem", LuaScriptInterface::luaPlayerAddItem);
 	registerMethod("Player", "addItemEx", LuaScriptInterface::luaPlayerAddItemEx);
@@ -8387,6 +8402,191 @@ int LuaScriptInterface::luaPlayerSetStorageValue(lua_State* L)
 	} else {
 		lua_pushnil(L);
 	}
+	return 1;
+}
+
+// ============== LLOEGRYS ATTRIBUTE SYSTEM ==============
+int LuaScriptInterface::luaPlayerGetLloegrysAttribute(lua_State* L)
+{
+	// player:getLloegrysAttribute(attrId)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	uint8_t attrId = getNumber<uint8_t>(L, 2);
+	if (attrId > 6) {
+		reportErrorFunc("Invalid attribute ID: " + std::to_string(attrId));
+		lua_pushnumber(L, 0);
+		return 1;
+	}
+
+	lua_pushnumber(L, player->getLloegrysAttribute(static_cast<LloegrysAttribute>(attrId)));
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetLloegrysAttribute(lua_State* L)
+{
+	// player:setLloegrysAttribute(attrId, value)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	uint8_t attrId = getNumber<uint8_t>(L, 2);
+	int32_t value = getNumber<int32_t>(L, 3);
+
+	if (attrId > 6) {
+		reportErrorFunc("Invalid attribute ID: " + std::to_string(attrId));
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	player->setLloegrysAttribute(static_cast<LloegrysAttribute>(attrId), value);
+	pushBoolean(L, true);
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerMeetsAttributeRequirements(lua_State* L)
+{
+	// player:meetsAttributeRequirements({str=X, dex=X, int=X, luck=X, con=X, spi=X, wis=X})
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	AttributeRequirements req;
+	if (lua_istable(L, 2)) {
+		lua_getfield(L, 2, "str");
+		if (!lua_isnil(L, -1)) req.strength = getNumber<int32_t>(L, -1);
+		lua_pop(L, 1);
+
+		lua_getfield(L, 2, "dex");
+		if (!lua_isnil(L, -1)) req.dexterity = getNumber<int32_t>(L, -1);
+		lua_pop(L, 1);
+
+		lua_getfield(L, 2, "int");
+		if (!lua_isnil(L, -1)) req.intelligence = getNumber<int32_t>(L, -1);
+		lua_pop(L, 1);
+
+		lua_getfield(L, 2, "luck");
+		if (!lua_isnil(L, -1)) req.luck = getNumber<int32_t>(L, -1);
+		lua_pop(L, 1);
+
+		lua_getfield(L, 2, "con");
+		if (!lua_isnil(L, -1)) req.constitution = getNumber<int32_t>(L, -1);
+		lua_pop(L, 1);
+
+		lua_getfield(L, 2, "spi");
+		if (!lua_isnil(L, -1)) req.spirit = getNumber<int32_t>(L, -1);
+		lua_pop(L, 1);
+
+		lua_getfield(L, 2, "wis");
+		if (!lua_isnil(L, -1)) req.wisdom = getNumber<int32_t>(L, -1);
+		lua_pop(L, 1);
+	}
+
+	std::string errorMsg;
+	bool meets = player->meetsAttributeRequirements(req, errorMsg);
+
+	lua_pushboolean(L, meets);
+	if (!meets) {
+		pushString(L, errorMsg);
+		return 2;
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerGetCritChanceBonus(lua_State* L)
+{
+	// player:getCritChanceBonus()
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	lua_pushnumber(L, player->getCritChanceBonus());
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerGetCooldownReduction(lua_State* L)
+{
+	// player:getCooldownReduction()
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	lua_pushnumber(L, player->getCooldownReduction());
+	return 1;
+}
+
+// ============== LLOEGRYS SPELL COOLDOWN SYSTEM ==============
+int LuaScriptInterface::luaPlayerIsSpellOnCooldown(lua_State* L)
+{
+	// player:isSpellOnCooldown(spellId)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	uint32_t spellId = getNumber<uint32_t>(L, 2);
+	bool onCooldown = SpellCooldownManager::getInstance().isOnCooldown(player->getGUID(), spellId);
+	pushBoolean(L, onCooldown);
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetSpellCooldown(lua_State* L)
+{
+	// player:setSpellCooldown(spellId, durationMs)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	uint32_t spellId = getNumber<uint32_t>(L, 2);
+	int64_t durationMs = getNumber<int64_t>(L, 3);
+
+	// Apply cooldown reduction from Constitution
+	int64_t modifiedDuration = SpellCooldownManager::getInstance().getModifiedCooldown(player, durationMs);
+	SpellCooldownManager::getInstance().setCooldown(player->getGUID(), spellId, modifiedDuration);
+	pushBoolean(L, true);
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerGetSpellCooldownRemaining(lua_State* L)
+{
+	// player:getSpellCooldownRemaining(spellId)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	uint32_t spellId = getNumber<uint32_t>(L, 2);
+	int64_t remaining = SpellCooldownManager::getInstance().getRemainingCooldown(player->getGUID(), spellId);
+	lua_pushnumber(L, remaining);
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerClearSpellCooldowns(lua_State* L)
+{
+	// player:clearSpellCooldowns()
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	SpellCooldownManager::getInstance().clearPlayerCooldowns(player->getGUID());
+	pushBoolean(L, true);
 	return 1;
 }
 

@@ -680,6 +680,76 @@ bool Player::getStorageValue(const uint32_t key, int32_t& value) const
 	return true;
 }
 
+// ============== LLOEGRYS ATTRIBUTE SYSTEM ==============
+int32_t Player::getLloegrysAttribute(LloegrysAttribute attr) const
+{
+	int32_t value;
+	uint32_t key = LLOEGRYS_ATTRIBUTE_STORAGE_BASE + static_cast<uint8_t>(attr);
+	if (getStorageValue(key, value)) {
+		return value;
+	}
+	return 0;
+}
+
+void Player::setLloegrysAttribute(LloegrysAttribute attr, int32_t value)
+{
+	uint32_t key = LLOEGRYS_ATTRIBUTE_STORAGE_BASE + static_cast<uint8_t>(attr);
+	addStorageValue(key, value);
+}
+
+bool Player::meetsAttributeRequirements(const AttributeRequirements& req, std::string& errorMsg) const
+{
+	std::vector<std::string> failures;
+
+	if (req.strength > 0 && getLloegrysAttribute(LloegrysAttribute::STRENGTH) < req.strength) {
+		failures.push_back("Strength " + std::to_string(req.strength));
+	}
+	if (req.dexterity > 0 && getLloegrysAttribute(LloegrysAttribute::DEXTERITY) < req.dexterity) {
+		failures.push_back("Dexterity " + std::to_string(req.dexterity));
+	}
+	if (req.intelligence > 0 && getLloegrysAttribute(LloegrysAttribute::INTELLIGENCE) < req.intelligence) {
+		failures.push_back("Intelligence " + std::to_string(req.intelligence));
+	}
+	if (req.luck > 0 && getLloegrysAttribute(LloegrysAttribute::LUCK) < req.luck) {
+		failures.push_back("Luck " + std::to_string(req.luck));
+	}
+	if (req.constitution > 0 && getLloegrysAttribute(LloegrysAttribute::CONSTITUTION) < req.constitution) {
+		failures.push_back("Constitution " + std::to_string(req.constitution));
+	}
+	if (req.spirit > 0 && getLloegrysAttribute(LloegrysAttribute::SPIRIT) < req.spirit) {
+		failures.push_back("Spirit " + std::to_string(req.spirit));
+	}
+	if (req.wisdom > 0 && getLloegrysAttribute(LloegrysAttribute::WISDOM) < req.wisdom) {
+		failures.push_back("Wisdom " + std::to_string(req.wisdom));
+	}
+
+	if (failures.empty()) {
+		return true;
+	}
+
+	errorMsg = "You need: ";
+	for (size_t i = 0; i < failures.size(); i++) {
+		if (i > 0) errorMsg += ", ";
+		errorMsg += failures[i];
+	}
+	return false;
+}
+
+float Player::getCritChanceBonus() const
+{
+	return getLloegrysAttribute(LloegrysAttribute::LUCK) * 0.04f;
+}
+
+float Player::getCastTimeReduction() const
+{
+	return getLloegrysAttribute(LloegrysAttribute::WISDOM) * 0.08f;
+}
+
+float Player::getCooldownReduction() const
+{
+	return getLloegrysAttribute(LloegrysAttribute::CONSTITUTION) * 0.08f;
+}
+
 bool Player::canSee(const Position& pos) const
 {
 	if (!client) {

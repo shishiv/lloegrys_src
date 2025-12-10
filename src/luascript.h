@@ -897,6 +897,19 @@ class LuaScriptInterface
 		static int luaPlayerGetStorageValue(lua_State* L);
 		static int luaPlayerSetStorageValue(lua_State* L);
 
+		// Lloegrys Attribute System
+		static int luaPlayerGetLloegrysAttribute(lua_State* L);
+		static int luaPlayerSetLloegrysAttribute(lua_State* L);
+		static int luaPlayerMeetsAttributeRequirements(lua_State* L);
+		static int luaPlayerGetCritChanceBonus(lua_State* L);
+		static int luaPlayerGetCooldownReduction(lua_State* L);
+
+		// Lloegrys Spell Cooldown System
+		static int luaPlayerIsSpellOnCooldown(lua_State* L);
+		static int luaPlayerSetSpellCooldown(lua_State* L);
+		static int luaPlayerGetSpellCooldownRemaining(lua_State* L);
+		static int luaPlayerClearSpellCooldowns(lua_State* L);
+
 		static int luaPlayerAddItem(lua_State* L);
 		static int luaPlayerAddItemEx(lua_State* L);
 		static int luaPlayerRemoveItem(lua_State* L);

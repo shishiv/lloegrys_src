@@ -36,6 +36,7 @@
 #include "groups.h"
 #include "town.h"
 #include "mounts.h"
+#include "lloegrys_attributes.h"
 
 class House;
 class NetworkMessage;
@@ -357,6 +358,17 @@ class Player final : public Creature, public Cylinder
 		void addStorageValue(const uint32_t key, const int32_t value, const bool isLogin = false);
 		bool getStorageValue(const uint32_t key, int32_t& value) const;
 		void genReservedStorageRange();
+
+		// ============== LLOEGRYS ATTRIBUTE SYSTEM ==============
+		// Type-safe accessors that wrap storage 40000-40006
+		int32_t getLloegrysAttribute(LloegrysAttribute attr) const;
+		void setLloegrysAttribute(LloegrysAttribute attr, int32_t value);
+		bool meetsAttributeRequirements(const AttributeRequirements& req, std::string& errorMsg) const;
+
+		// Calculated bonuses from attributes
+		float getCritChanceBonus() const;      // Luck (40003) * 4%
+		float getCastTimeReduction() const;    // Wisdom (40006) * 8%
+		float getCooldownReduction() const;    // Constitution (40004) * 8%
 
 		void setGroup(Group* newGroup) {
 			group = newGroup;
